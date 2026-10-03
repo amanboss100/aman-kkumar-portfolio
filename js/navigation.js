@@ -1,1 +1,111 @@
+/* =========================================================
+   AMAN KKUMAR — PORTFOLIO
+   Navigation JavaScript
+   ========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    // Make sure navigation elements exist
+    if (!menuToggle || !navLinks) {
+        return;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU TOGGLE
+    ===================================================== */
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+            navLinks.classList.toggle("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+        menuToggle.textContent =
+            isOpen ? "✕" : "☰";
+    });
+
+
+    /* =====================================================
+       CLOSE MENU AFTER CLICKING A NAVIGATION LINK
+    ===================================================== */
+
+    const navigationLinks =
+        navLinks.querySelectorAll("a");
+
+    navigationLinks.forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.textContent = "☰";
+        });
+
+    });
+
+
+    /* =====================================================
+       CLOSE MENU WHEN CLICKING OUTSIDE
+    ===================================================== */
+
+    document.addEventListener("click", (event) => {
+
+        const clickedInsideMenu =
+            navLinks.contains(event.target);
+
+        const clickedToggle =
+            menuToggle.contains(event.target);
+
+        if (
+            !clickedInsideMenu &&
+            !clickedToggle &&
+            navLinks.classList.contains("active")
+        ) {
+
+            navLinks.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.textContent = "☰";
+        }
+
+    });
+
+
+    /* =====================================================
+       CLOSE MOBILE MENU WHEN SCREEN BECOMES DESKTOP
+    ===================================================== */
+
+    window.addEventListener("resize", () => {
+
+        if (window.innerWidth > 768) {
+
+            navLinks.classList.remove("active");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.textContent = "☰";
+        }
+
+    });
+
+});
