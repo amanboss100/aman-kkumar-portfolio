@@ -1,557 +1,874 @@
 /* =========================================================
    AMAN KKUMAR — PORTFOLIO
    Responsive Stylesheet
-   Mobile • Tablet • Desktop
+   Mobile • Tablet • Desktop Optimization
    ========================================================= */
 
 
 /* =========================================================
-   1. LARGE TABLETS / SMALL LAPTOPS
-   Up to 1100px
+   1. TABLETS & SMALL LAPTOPS (1024px - 1100px)
    ========================================================= */
 
 @media (max-width: 1100px) {
-
-    .hero {
-        grid-template-columns: 1fr 0.8fr;
-        gap: 20px;
+    
+    .hero-container {
+        grid-template-columns: 1fr 0.9fr;
+        gap: 60px;
     }
 
-    .hero h1 {
-        font-size: clamp(3rem, 7vw, 5rem);
+    .hero-title {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .skills-map {
+        grid-template-columns: repeat(3, 1fr);
     }
 
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content {
+        gap: 60px;
+    }
 }
 
 
 /* =========================================================
-   2. TABLETS
-   Up to 900px
+   2. TABLETS (768px - 900px)
    ========================================================= */
 
 @media (max-width: 900px) {
 
-    /* ---------- Navigation ---------- */
+    /* -------- Global -------- */
+    
+    .section-container {
+        padding: 0 30px;
+    }
+
+    .section {
+        padding: 100px 0;
+    }
+
+    /* -------- Navigation -------- */
 
     .nav-links {
         gap: 20px;
     }
 
-    /* ---------- Hero ---------- */
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+    /* -------- Hero -------- */
 
     .hero {
+        padding-top: 100px;
+    }
+
+    .hero-container {
         grid-template-columns: 1fr;
-
-        min-height: auto;
-
-        padding-top: 150px;
-        padding-bottom: 100px;
-
+        gap: 50px;
         text-align: center;
     }
 
     .hero-content {
-        display: flex;
-        flex-direction: column;
         align-items: center;
     }
 
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
+    .hero-label {
+        justify-content: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 4rem);
     }
 
     .hero-buttons {
         justify-content: center;
-    }
-
-    .hero-visual {
-        min-height: 400px;
-
-        margin-top: 10px;
-    }
-
-    /* ---------- About ---------- */
-
-    .about-content {
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-    }
-
-    .about-image {
+        flex-direction: column;
+        align-items: center;
         max-width: 300px;
-    }
-
-    /* ---------- Building ---------- */
-
-    .building-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-
-/* =========================================================
-   3. MOBILE NAVIGATION
-   Up to 768px
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* ---------- Global ---------- */
-
-    .navbar,
-    .section,
-    .footer-content,
-    .hero {
-        width: min(
-            calc(100% - 28px),
-            var(--container)
-        );
-    }
-
-    .section {
-        padding-top: 85px;
-        padding-bottom: 85px;
-    }
-
-
-    /* ---------- Header ---------- */
-
-    .navbar {
-        min-height: 64px;
-    }
-
-    .menu-toggle {
-        display: block;
-
-        font-size: 1.1rem;
-
-        line-height: 1;
-    }
-
-    .nav-links {
-        position: absolute;
-
-        top: 64px;
-        left: 14px;
-        right: 14px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 0;
-
-        padding: 10px;
-
-        background:
-            rgba(11, 15, 22, 0.97);
-
-        border: 1px solid var(--border);
-
-        border-radius: 14px;
-
-        box-shadow:
-            0 20px 50px
-            rgba(0, 0, 0, 0.35);
-
-        opacity: 0;
-        visibility: hidden;
-
-        transform:
-            translateY(-10px);
-
-        transition:
-            opacity 0.25s ease,
-            visibility 0.25s ease,
-            transform 0.25s ease;
-    }
-
-    .nav-links.active {
-        opacity: 1;
-
-        visibility: visible;
-
-        transform:
-            translateY(0);
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        display: block;
-
-        padding: 13px 14px;
-
-        border-radius: 9px;
-
-        font-size: 0.92rem;
-    }
-
-    .nav-links a:hover {
-        background:
-            rgba(255, 255, 255, 0.04);
-    }
-
-    .nav-links a::after {
-        display: none;
-    }
-
-
-    /* ---------- Hero ---------- */
-
-    .hero {
-        padding-top: 120px;
-        padding-bottom: 70px;
-    }
-
-    .hero h1 {
-        font-size:
-            clamp(2.7rem, 14vw, 4.5rem);
-
-        letter-spacing: -0.06em;
-    }
-
-    .hero h2 {
-        font-size: 1.15rem;
-    }
-
-    .hero-description {
-        font-size: 0.95rem;
-    }
-
-    .hero-buttons {
-        width: 100%;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        max-width: 320px;
+        margin: 0 auto;
     }
 
     .btn {
         width: 100%;
     }
 
-    .hero-tagline {
-        font-size: 0.76rem;
-    }
-
-
-    /* ---------- Circuit Visual ---------- */
-
     .hero-visual {
-        min-height: 320px;
+        height: 400px;
     }
 
-    .circuit-core {
-        width: 130px;
-        height: 130px;
+    .profile-frame {
+        width: 280px;
+        height: 280px;
     }
 
-    .circuit-core::before {
-        width: 95px;
-        height: 95px;
-    }
+    /* -------- About -------- */
 
-    .circuit-core::after {
-        width: 58px;
-        height: 58px;
-    }
-
-    .orbit-one {
-        width: 230px;
-        height: 230px;
-    }
-
-    .orbit-two {
-        width: 300px;
-        height: 180px;
-    }
-
-    .node-one {
-        left: 17%;
-    }
-
-    .node-two {
-        right: 14%;
-    }
-
-    .node-three {
-        left: 20%;
-    }
-
-    .node-four {
-        right: 19%;
-    }
-
-
-    /* ---------- Section Heading ---------- */
-
-    .section-heading {
-        margin-bottom: 38px;
-    }
-
-    .section-heading h2 {
-        font-size:
-            clamp(1.8rem, 9vw, 2.6rem);
-    }
-
-
-    /* ---------- Skills ---------- */
-
-    .skills-grid {
+    .about-content {
         grid-template-columns: 1fr;
-
-        gap: 12px;
+        gap: 40px;
+        text-align: center;
     }
 
-    .skill-card {
-        min-height: 120px;
-
-        padding: 21px;
+    .about-left {
+        position: static;
     }
 
-
-    /* ---------- Building ---------- */
-
-    .building-card {
-        min-height: 220px;
-
-        padding: 25px;
+    .about-image {
+        max-width: 250px;
+        margin: 0 auto;
     }
 
-    .building-number {
-        margin-bottom: 25px;
+    .about-right {
+        align-items: center;
     }
 
+    .about-block {
+        text-align: left;
+    }
 
-    /* ---------- Philosophy ---------- */
+    /* -------- Skills -------- */
 
-    .philosophy-grid {
+    .skills-map {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* -------- Building -------- */
+
+    .roadmap {
+        padding-left: 30px;
+    }
+
+    .roadmap-item::before {
+        left: -38px;
+    }
+
+    /* -------- Projects -------- */
+
+    .project-lab {
+        padding: 40px;
+    }
+
+    .lab-tags {
+        flex-wrap: wrap;
+    }
+
+    /* -------- Approach -------- */
+
+    .approach-grid {
         grid-template-columns: 1fr;
     }
 
-    .philosophy-card {
-        padding: 24px;
-    }
+    /* -------- Contact -------- */
 
-
-    /* ---------- Contact ---------- */
-
-    .contact-links {
+    .contact-cards {
         grid-template-columns: 1fr;
     }
 
-    .contact-card {
-        min-height: 90px;
+    /* -------- Footer -------- */
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
     }
 
-
-    /* ---------- Footer ---------- */
-
-    .footer-bottom {
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 8px;
+    .footer-content > div:last-child {
+        text-align: center;
     }
-
 }
 
 
 /* =========================================================
-   4. SMALL MOBILE DEVICES
-   Up to 480px
+   3. MOBILE DEVICES (480px - 768px)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* -------- Global -------- */
+
+    .section-container {
+        padding: 0 20px;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .section::before {
+        display: none;
+    }
+
+    /* -------- Header -------- */
+
+    .site-header {
+        height: auto;
+    }
+
+    .navbar {
+        height: 64px;
+        padding: 0 20px;
+    }
+
+    .brand {
+        font-size: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 64px;
+        left: 10px;
+        right: 10px;
+        flex-direction: column;
+        gap: 0;
+        padding: 12px;
+        background: rgba(5, 7, 11, 0.95);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        padding: 12px 16px;
+        display: block;
+        border-radius: var(--radius-sm);
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    .nav-links a:hover {
+        background: rgba(34, 211, 238, 0.1);
+        color: var(--text-primary);
+    }
+
+    .nav-links a::after {
+        display: none;
+    }
+
+    .nav-links a.active {
+        background: rgba(34, 211, 238, 0.15);
+        color: var(--accent-cyan);
+    }
+
+    /* -------- Hero -------- */
+
+    .hero {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .hero::after {
+        right: -200px;
+        width: 400px;
+        height: 400px;
+    }
+
+    .hero-label {
+        font-size: 0.8rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        max-width: 100%;
+    }
+
+    .btn {
+        min-height: 44px;
+        font-size: 0.9rem;
+    }
+
+    .hero-status {
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+
+    .hero-tagline {
+        font-size: 0.75rem;
+    }
+
+    .hero-visual {
+        height: 350px;
+    }
+
+    .profile-frame {
+        width: 260px;
+        height: 260px;
+        box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+    }
+
+    .outer-ring {
+        width: 360px;
+        height: 360px;
+    }
+
+    .inner-ring {
+        width: 240px;
+        height: 240px;
+    }
+
+    .tech-label {
+        font-size: 0.65rem;
+        opacity: 0.3;
+    }
+
+    /* -------- Section Header -------- */
+
+    .section-header {
+        margin-bottom: 45px;
+        text-align: center;
+    }
+
+    .section-header h2 {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+    }
+
+    .section-header > p {
+        font-size: 0.9rem;
+    }
+
+    .label-number {
+        font-size: 2rem;
+    }
+
+    .label-text {
+        font-size: 0.7rem;
+    }
+
+    /* -------- About -------- */
+
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .about-image {
+        max-width: 200px;
+    }
+
+    .about-block {
+        padding: 20px;
+    }
+
+    .about-block h3 {
+        font-size: 1rem;
+    }
+
+    .about-block p {
+        font-size: 0.9rem;
+    }
+
+    /* -------- Skills -------- */
+
+    .skills-map {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .skill-category {
+        padding: 20px;
+    }
+
+    .category-title {
+        font-size: 0.7rem;
+        margin-bottom: 12px;
+    }
+
+    .skill-item {
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+
+    .skill-icon {
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    /* -------- Building -------- */
+
+    .roadmap {
+        padding-left: 24px;
+    }
+
+    .roadmap::before {
+        width: 2px;
+        left: -2px;
+    }
+
+    .roadmap-item {
+        padding: 24px;
+        margin-bottom: 24px;
+    }
+
+    .roadmap-item::before {
+        left: -30px;
+        width: 10px;
+        height: 10px;
+    }
+
+    .roadmap-number {
+        font-size: 1.8rem;
+    }
+
+    .roadmap-content h3 {
+        font-size: 1.05rem;
+    }
+
+    .roadmap-content p {
+        font-size: 0.9rem;
+    }
+
+    .roadmap-status {
+        font-size: 0.65rem;
+        padding: 5px 10px;
+    }
+
+    /* -------- Projects -------- */
+
+    .project-lab {
+        padding: 35px 25px;
+        min-height: 350px;
+    }
+
+    .lab-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .project-lab h3 {
+        font-size: 1.5rem;
+    }
+
+    .project-lab p {
+        font-size: 0.9rem;
+    }
+
+    .lab-tags {
+        gap: 8px;
+    }
+
+    .lab-tags span {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    /* -------- Approach -------- */
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .approach-card {
+        padding: 24px;
+    }
+
+    .approach-num {
+        font-size: 2rem;
+    }
+
+    .approach-card h3 {
+        font-size: 1rem;
+    }
+
+    .approach-card p {
+        font-size: 0.9rem;
+    }
+
+    .approach-tagline {
+        font-size: 0.9rem;
+    }
+
+    /* -------- Contact -------- */
+
+    .contact-section .section-header {
+        margin-bottom: 40px;
+    }
+
+    .contact-section .section-header h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .contact-section .section-header > p {
+        font-size: 0.9rem;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-card {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .contact-icon {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+
+    .contact-label {
+        font-size: 0.7rem;
+    }
+
+    .contact-value {
+        font-size: 0.9rem;
+    }
+
+    /* -------- Footer -------- */
+
+    .site-footer {
+        padding: 50px 0;
+    }
+
+    .footer-container {
+        padding: 0 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .footer-content h3 {
+        font-size: 1rem;
+    }
+
+    .footer-content p {
+        font-size: 0.85rem;
+    }
+}
+
+
+/* =========================================================
+   4. SMALL MOBILE DEVICES (360px - 480px)
    ========================================================= */
 
 @media (max-width: 480px) {
 
-    /* ---------- Global ---------- */
+    /* -------- Global -------- */
 
-    .navbar,
-    .section,
-    .footer-content,
-    .hero {
-        width: calc(100% - 24px);
+    .section-container {
+        padding: 0 16px;
     }
 
+    .section {
+        padding: 70px 0;
+    }
 
-    /* ---------- Brand ---------- */
+    /* -------- Header -------- */
+
+    .navbar {
+        padding: 0 16px;
+    }
 
     .brand {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
     }
 
-
-    /* ---------- Hero ---------- */
+    /* -------- Hero -------- */
 
     .hero {
-        padding-top: 110px;
+        padding-top: 70px;
+        padding-bottom: 50px;
     }
 
-    .hero-intro {
-        font-size: 0.9rem;
+    .hero::after {
+        right: -250px;
+        width: 350px;
+        height: 350px;
     }
 
-    .hero h1 {
-        font-size: 2.8rem;
+    .hero-title {
+        font-size: clamp(1.8rem, 8vw, 3rem);
     }
 
-    .hero h2 {
+    .hero-subtitle {
         font-size: 1rem;
-
-        line-height: 1.4;
     }
 
     .hero-description {
         font-size: 0.9rem;
-
-        line-height: 1.7;
+        line-height: 1.6;
     }
-
-
-    /* ---------- Circuit ---------- */
 
     .hero-visual {
-        min-height: 270px;
+        height: 300px;
     }
 
-    .circuit-core {
-        width: 105px;
-        height: 105px;
+    .profile-frame {
+        width: 220px;
+        height: 220px;
     }
 
-    .circuit-core::before {
-        width: 78px;
-        height: 78px;
+    .outer-ring {
+        width: 300px;
+        height: 300px;
     }
 
-    .circuit-core::after {
-        width: 48px;
-        height: 48px;
+    .inner-ring {
+        width: 200px;
+        height: 200px;
     }
 
-    .orbit-one {
-        width: 190px;
-        height: 190px;
+    .frame-node {
+        width: 5px;
+        height: 5px;
     }
 
-    .orbit-two {
-        width: 250px;
-        height: 145px;
+    /* -------- Section Header -------- */
+
+    .section-header {
+        margin-bottom: 35px;
     }
 
-    .circuit-node {
-        width: 6px;
-        height: 6px;
+    .section-header h2 {
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+        line-height: 1.15;
     }
 
+    .label-number {
+        font-size: 1.5rem;
+    }
 
-    /* ---------- About ---------- */
+    /* -------- About -------- */
 
     .about-image {
-        max-width: 240px;
+        max-width: 180px;
     }
 
-    .about-text {
-        font-size: 0.92rem;
+    .about-block {
+        padding: 16px;
     }
 
-
-    /* ---------- Building ---------- */
-
-    .building-card {
-        min-height: auto;
-
-        padding: 22px;
+    .about-block h3 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
     }
 
-    .building-card h3 {
-        font-size: 1.2rem;
+    .about-block p {
+        font-size: 0.85rem;
+        line-height: 1.5;
     }
 
-    .building-card p {
-        font-size: 0.9rem;
+    /* -------- Skills -------- */
+
+    .skills-map {
+        grid-template-columns: 1fr;
     }
 
-
-    /* ---------- Projects ---------- */
-
-    .projects-empty {
-        min-height: 300px;
-
-        padding: 30px 20px;
+    .skill-category {
+        padding: 16px;
     }
 
-    .projects-empty p {
-        font-size: 0.9rem;
+    .category-title {
+        font-size: 0.65rem;
     }
 
-
-    /* ---------- Contact ---------- */
-
-    .contact-card {
-        padding: 17px;
-
-        gap: 13px;
-    }
-
-    .contact-card span:last-child {
+    .skill-item {
         font-size: 0.8rem;
     }
 
-    .contact-icon {
-        width: 42px;
-        height: 42px;
+    /* -------- Building -------- */
+
+    .roadmap {
+        padding-left: 20px;
     }
 
+    .roadmap-item {
+        padding: 18px;
+        margin-bottom: 20px;
+    }
 
-    /* ---------- Footer ---------- */
+    .roadmap-item::before {
+        left: -26px;
+    }
+
+    .roadmap-number {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .roadmap-content h3 {
+        font-size: 1rem;
+    }
+
+    .roadmap-content p {
+        font-size: 0.85rem;
+    }
+
+    /* -------- Projects -------- */
+
+    .project-lab {
+        padding: 30px 20px;
+        min-height: 300px;
+    }
+
+    .lab-icon {
+        font-size: 2rem;
+    }
+
+    .project-lab h3 {
+        font-size: 1.3rem;
+    }
+
+    .project-lab p {
+        font-size: 0.85rem;
+    }
+
+    .lab-tags {
+        gap: 6px;
+    }
+
+    .lab-tags span {
+        font-size: 0.7rem;
+        padding: 5px 10px;
+    }
+
+    /* -------- Approach -------- */
+
+    .approach-card {
+        padding: 18px;
+    }
+
+    .approach-num {
+        font-size: 1.5rem;
+        margin-bottom: 8px;
+    }
+
+    .approach-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .approach-card p {
+        font-size: 0.85rem;
+    }
+
+    .approach-tagline {
+        font-size: 0.85rem;
+    }
+
+    /* -------- Contact -------- */
+
+    .contact-card {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .contact-label {
+        font-size: 0.65rem;
+    }
+
+    .contact-value {
+        font-size: 0.85rem;
+    }
+
+    /* -------- Footer -------- */
 
     .footer-content {
-        padding-top: 40px;
-        padding-bottom: 25px;
+        gap: 16px;
     }
 
+    .footer-content h3 {
+        font-size: 0.95rem;
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
+    }
 }
 
 
 /* =========================================================
-   5. VERY SMALL DEVICES
-   Up to 360px
+   5. VERY SMALL DEVICES (< 360px)
    ========================================================= */
 
 @media (max-width: 360px) {
 
-    .hero h1 {
-        font-size: 2.45rem;
+    .section-container {
+        padding: 0 12px;
     }
 
-    .hero h2 {
-        font-size: 0.95rem;
+    .hero-title {
+        font-size: clamp(1.6rem, 7vw, 2.8rem);
     }
 
-    .hero-description {
-        font-size: 0.85rem;
+    .section-header h2 {
+        font-size: clamp(1.2rem, 5vw, 2rem);
     }
 
-    .hero-visual {
-        transform: scale(0.9);
+    .profile-frame {
+        width: 200px;
+        height: 200px;
     }
 
-    .section-heading h2 {
-        font-size: 1.7rem;
+    .skills-map {
+        grid-template-columns: 1fr;
     }
 
-      }
+    .roadmap {
+        padding-left: 16px;
+    }
+
+    .roadmap-item::before {
+        left: -22px;
+    }
+}
+
+
+/* =========================================================
+   6. ACCESSIBILITY: REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
