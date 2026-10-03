@@ -2,755 +2,391 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aman kkumar — Electronics Engineering Student. Learning and building at the intersection of Electronics, Embedded Systems, and AI.">
+    <meta name="author" content="Aman kkumar">
+    <meta property="og:title" content="Aman kkumar | Electronics & Embedded Systems">
+    <meta property="og:description" content="Electronics Engineering Student building with ESP32, Arduino, and AI.">
+    <meta property="og:type" content="website">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Aman kkumar | Electronics Engineering Student</title>
 
-    <meta
-        name="description"
-        content="Aman kkumar — Electronics Engineering Student exploring Electronics, Embedded Systems and AI. Building at the intersection of hardware and intelligent systems."
-    >
-
-    <meta
-        name="author"
-        content="Aman kkumar"
-    >
-
-    <meta
-        property="og:title"
-        content="Aman kkumar | Electronics & Embedded Systems"
-    >
-
-    <meta
-        property="og:description"
-        content="Electronics Engineering Student. Learning, building, and improving."
-    >
-
-    <meta
-        property="og:type"
-        content="website"
-    >
-
-    <title>Aman kkumar | Electronics & Embedded Systems Engineer</title>
-
-    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- Responsive CSS -->
     <link rel="stylesheet" href="css/responsive.css">
-
-    <!-- Animation CSS -->
     <link rel="stylesheet" href="css/animations.css">
-
-    <!-- Favicon -->
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="assets/icons/favicon.svg"
-    >
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER / NAVIGATION
-    ========================== -->
-
+    <!-- HEADER / NAVIGATION -->
     <header class="site-header">
-
         <nav class="navbar">
+            <a href="#home" class="brand">Aman <span>kkumar</span></a>
 
-            <a href="#home" class="brand">
-                Aman <span>kkumar</span>
-            </a>
-
-            <button
-                class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-            >
-                ☰
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
             <ul class="nav-links" id="navLinks">
-
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#building">Building</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#building">Building</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-
         </nav>
-
     </header>
-
 
     <main>
 
-        <!-- =========================
-             HERO SECTION
-        ========================== -->
-
+        <!-- HERO SECTION -->
         <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <p class="hero-label">Hello, I am</p>
+                    <h1 class="hero-title">
+                        <span class="typing-target" id="typingTarget">Aman</span><span class="typing-cursor"></span>
+                    </h1>
+                    <p class="hero-subtitle">Electronics Engineering Student</p>
+                    <p class="hero-description">Building at the intersection of <strong>Electronics</strong>, <strong>Embedded Systems</strong> & <strong>AI</strong>.</p>
 
-            <!-- Animated background -->
-            <div class="hero-bg" aria-hidden="true">
-                <div class="circuit-grid"></div>
-                <svg class="circuit-svg" viewBox="0 0 1200 400" preserveAspectRatio="none">
-                    <defs>
-                        <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:0.1" />
-                            <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.05" />
-                        </linearGradient>
-                    </defs>
-                    <path class="circuit-path" d="M 100 200 L 300 200 L 300 100 L 500 100 L 500 300 L 700 300 L 700 150 L 900 150" 
-                          stroke="url(#circuitGradient)" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
-                    <circle class="circuit-node" cx="100" cy="200" r="4"/>
-                    <circle class="circuit-node" cx="300" cy="200" r="4"/>
-                    <circle class="circuit-node" cx="300" cy="100" r="4"/>
-                    <circle class="circuit-node" cx="500" cy="100" r="4"/>
-                </svg>
-            </div>
+                    <div class="hero-buttons">
+                        <a href="#about" class="btn btn-primary">Explore My Work</a>
+                        <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+                    </div>
 
-            <div class="hero-content">
+                    <p class="hero-status">
+                        <span class="status-dot"></span>
+                        Currently Learning: ESP32 & Embedded Systems
+                    </p>
 
-                <p class="hero-intro">
-                    Hello, I am
-                </p>
-
-                <h1 class="hero-title">
-                    <span class="typing-text" id="typingText">Aman</span><span class="typing-cursor" id="typingCursor">|</span>
-                </h1>
-
-                <h2>
-                    Electronics Engineering Student
-                </h2>
-
-                <p class="hero-description">
-                    Building at the intersection of
-                    <strong>Electronics</strong>,
-                    <strong>Embedded Systems</strong>
-                    &amp;
-                    <strong>AI</strong>.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#about" class="btn btn-primary">
-                        Know About Me
-                    </a>
-
-                    <a href="#contact" class="btn btn-secondary">
-                        Let's Connect
-                    </a>
-
+                    <p class="hero-tagline">Learn. Build. Improve.</p>
                 </div>
 
-                <p class="hero-tagline">
-                    Learn. Build. Improve.
-                </p>
-
-            </div>
-
-
-            <!-- Premium Circuit Frame Visual -->
-
-            <div class="hero-visual">
-
-                <div class="circuit-frame">
-                    <img
-                        src="assets/images/profile.webp"
-                        alt="Aman kkumar — Electronics Engineering Student"
-                        class="profile-image"
-                    >
-                    <div class="circuit-corner corner-tl" aria-hidden="true"></div>
-                    <div class="circuit-corner corner-tr" aria-hidden="true"></div>
-                    <div class="circuit-corner corner-bl" aria-hidden="true"></div>
-                    <div class="circuit-corner corner-br" aria-hidden="true"></div>
-                    <div class="frame-glow" aria-hidden="true"></div>
+                <div class="hero-visual">
+                    <div class="profile-wrapper">
+                        <div class="profile-frame">
+                            <img src="assets/images/profile.webp" alt="Aman kkumar — Electronics Engineering Student" class="profile-img">
+                            <div class="frame-ring outer-ring"></div>
+                            <div class="frame-ring inner-ring"></div>
+                            <div class="frame-node node-1"></div>
+                            <div class="frame-node node-2"></div>
+                            <div class="frame-node node-3"></div>
+                            <div class="frame-node node-4"></div>
+                        </div>
+                        <div class="tech-labels">
+                            <span class="tech-label">ESP32</span>
+                            <span class="tech-label">MCU</span>
+                            <span class="tech-label">AI</span>
+                            <span class="tech-label">SENSOR</span>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Floating nodes -->
-                <div class="floating-node node-1" aria-hidden="true"></div>
-                <div class="floating-node node-2" aria-hidden="true"></div>
-                <div class="floating-node node-3" aria-hidden="true"></div>
-
             </div>
-
         </section>
 
-
-        <!-- =========================
-             ABOUT SECTION
-        ========================== -->
-
+        <!-- ABOUT SECTION -->
         <section id="about" class="section about-section">
-
-            <div class="section-heading">
-
-                <p class="section-number">01</p>
-
-                <p class="section-label">
-                    ABOUT
-                </p>
-
-                <h2>
-                    Learning by understanding and building.
-                </h2>
-
-            </div>
-
-
-            <div class="about-content">
-
-                <div class="about-image">
-
-                    <img
-                        src="assets/images/profile.webp"
-                        alt="Aman kkumar"
-                    >
-
-                    <div class="about-label" aria-hidden="true">
-                        SYSTEM / ABOUT
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-label">
+                        <span class="label-number">01</span>
+                        <span class="label-text">ABOUT</span>
                     </div>
-
+                    <h2>Learning by building real things.</h2>
                 </div>
 
+                <div class="about-content">
+                    <div class="about-left">
+                        <img src="assets/images/profile.webp" alt="Aman kkumar" class="about-image">
+                    </div>
+                    <div class="about-right">
+                        <div class="about-block">
+                            <h3>Who I Am</h3>
+                            <p>I'm an Electronics Engineering student interested in how hardware, embedded systems, and AI work together. I believe the future is built at the intersection of these three fields.</p>
+                        </div>
 
-                <div class="about-text">
+                        <div class="about-block">
+                            <h3>What Drives Me</h3>
+                            <p>I got interested in electronics because I wanted to understand what happens behind everyday devices — especially circuits, microcontrollers, and machines. What excites me about embedded systems is that you write code and actually see it control something in the real world.</p>
+                        </div>
 
-                    <p>
-                        Hi, I'm Aman. I'm an Electronics Engineering
-                        student interested in how hardware, embedded
-                        systems and AI can work together.
-                    </p>
+                        <div class="about-block">
+                            <h3>Current Focus</h3>
+                            <p>Right now, I'm building my foundation in circuits, breadboards, and electronic components. I'm also experimenting with the ESP32 and learning how software can control hardware. I'm exploring AI not just as a tool, but understanding the technology behind it.</p>
+                        </div>
 
-                    <p>
-                        I got interested in electronics because I wanted
-                        to understand what happens behind the things we
-                        use every day — especially circuits,
-                        microcontrollers and machines.
-                    </p>
-
-                    <p>
-                        What I like about embedded systems is that you
-                        can write some code and actually see it do
-                        something in the real world. That's what made me
-                        interested in boards like the ESP32.
-                    </p>
-
-                    <p>
-                        I'm also learning about AI because I don't want
-                        to only use AI tools. I want to understand the
-                        technology behind them and eventually connect AI
-                        with real hardware.
-                    </p>
-
-                    <p>
-                        Right now, I'm starting with the basics —
-                        circuits, LEDs, breadboards and electronic
-                        components — and gradually moving towards
-                        embedded systems and AI.
-                    </p>
-
-                    <p>
-                        My goal is simple: learn, build, improve, and
-                        eventually become an Electronics &amp; Embedded
-                        Systems Engineer.
-                    </p>
-
+                        <div class="about-block">
+                            <h3>Long-term Goal</h3>
+                            <p>Become an Electronics & Embedded Systems Engineer who can bridge hardware and intelligent systems. I'm committed to learning deeply, building continuously, and improving with every project.</p>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- =========================
-             SKILLS SECTION
-        ========================== -->
-
+        <!-- SKILLS SECTION -->
         <section id="skills" class="section skills-section">
-
-            <div class="section-heading">
-
-                <p class="section-number">02</p>
-
-                <p class="section-label">
-                    SKILLS
-                </p>
-
-                <h2>
-                    Things I'm learning and improving.
-                </h2>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-                <article class="skill-card">
-                    <div class="skill-icon">⚡</div>
-                    <h3>Basic Electronics</h3>
-                    <p>Building Foundations</p>
-                    <span class="skill-status">● ACTIVE</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">🤖</div>
-                    <h3>Arduino</h3>
-                    <p>Learning</p>
-                    <span class="skill-status">● LEARNING</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">📡</div>
-                    <h3>ESP32</h3>
-                    <p>Learning &amp; Experimenting</p>
-                    <span class="skill-status">● EXPLORING</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">🔧</div>
-                    <h3>Embedded Systems</h3>
-                    <p>Exploring</p>
-                    <span class="skill-status">● EXPLORING</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">🐍</div>
-                    <h3>Python</h3>
-                    <p>Improving</p>
-                    <span class="skill-status">● ACTIVE</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">⌨️</div>
-                    <h3>C / C++</h3>
-                    <p>Learning</p>
-                    <span class="skill-status">● LEARNING</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">🧠</div>
-                    <h3>AI</h3>
-                    <p>Exploring</p>
-                    <span class="skill-status">● EXPLORING</span>
-                </article>
-
-                <article class="skill-card">
-                    <div class="skill-icon">🔗</div>
-                    <h3>Git &amp; GitHub</h3>
-                    <p>Learning</p>
-                    <span class="skill-status">● LEARNING</span>
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CURRENTLY BUILDING
-        ========================== -->
-
-        <section id="building" class="section building-section">
-
-            <div class="section-heading">
-
-                <p class="section-number">03</p>
-
-                <p class="section-label">
-                    CURRENTLY BUILDING
-                </p>
-
-                <h2>
-                    Turning learning into real experiments.
-                </h2>
-
-            </div>
-
-
-            <div class="building-grid">
-
-                <article class="building-card">
-
-                    <span class="building-number">
-                        01
-                    </span>
-
-                    <h3>
-                        ESP32 Projects
-                    </h3>
-
-                    <p>
-                        Learning and experimenting with ESP32,
-                        sensors and hardware control.
-                    </p>
-
-                    <span class="status">
-                        LEARNING
-                    </span>
-
-                </article>
-
-
-                <article class="building-card">
-
-                    <span class="building-number">
-                        02
-                    </span>
-
-                    <h3>
-                        Electronics Foundations
-                    </h3>
-
-                    <p>
-                        Understanding circuits, LEDs, breadboards
-                        and electronic components.
-                    </p>
-
-                    <span class="status">
-                        BUILDING FOUNDATIONS
-                    </span>
-
-                </article>
-
-
-                <article class="building-card">
-
-                    <span class="building-number">
-                        03
-                    </span>
-
-                    <h3>
-                        Embedded Systems
-                    </h3>
-
-                    <p>
-                        Exploring microcontrollers and how software
-                        can control physical hardware.
-                    </p>
-
-                    <span class="status">
-                        EXPLORING
-                    </span>
-
-                </article>
-
-
-                <article class="building-card">
-
-                    <span class="building-number">
-                        04
-                    </span>
-
-                    <h3>
-                        AI + Hardware
-                    </h3>
-
-                    <p>
-                        Exploring how artificial intelligence can
-                        interact with real-world hardware.
-                    </p>
-
-                    <span class="status">
-                        EXPLORING
-                    </span>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROJECTS SECTION
-        ========================== -->
-
-        <section id="projects" class="section projects-section">
-
-            <div class="section-heading">
-
-                <p class="section-number">04</p>
-
-                <p class="section-label">
-                    PROJECTS
-                </p>
-
-                <h2>
-                    Real projects will appear here.
-                </h2>
-
-            </div>
-
-
-            <div class="projects-empty">
-
-                <div class="projects-content">
-
-                    <div class="projects-empty-icon" aria-hidden="true">
-                        ◯
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-label">
+                        <span class="label-number">02</span>
+                        <span class="label-text">SKILLS</span>
+                    </div>
+                    <h2>Technologies I'm learning and improving.</h2>
+                </div>
+
+                <div class="skills-map">
+                    <div class="skill-category">
+                        <h3 class="category-title">Foundation</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">⚡</span>
+                                <span class="skill-name">Basic Electronics</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🔌</span>
+                                <span class="skill-name">Circuits & Components</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <h3>
-                        PROJECT LAB
-                    </h3>
+                    <div class="skill-category">
+                        <h3 class="category-title">Learning</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">🤖</span>
+                                <span class="skill-name">Arduino</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">📡</span>
+                                <span class="skill-name">ESP32</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">⌨️</span>
+                                <span class="skill-name">C / C++</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🐍</span>
+                                <span class="skill-name">Python</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <p>
-                        Real projects will appear here as I build and document them.
-                    </p>
+                    <div class="skill-category">
+                        <h3 class="category-title">Exploring</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">🔧</span>
+                                <span class="skill-name">Embedded Systems</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">🧠</span>
+                                <span class="skill-name">AI & ML Concepts</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class="project-tags" aria-hidden="true">
+                    <div class="skill-category">
+                        <h3 class="category-title">Tools</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">🔗</span>
+                                <span class="skill-name">Git & GitHub</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CURRENTLY BUILDING SECTION -->
+        <section id="building" class="section building-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-label">
+                        <span class="label-number">03</span>
+                        <span class="label-text">CURRENTLY BUILDING</span>
+                    </div>
+                    <h2>My learning roadmap.</h2>
+                </div>
+
+                <div class="roadmap">
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">01</div>
+                        <div class="roadmap-content">
+                            <h3>Electronics Foundations</h3>
+                            <p>Understanding circuits, LEDs, breadboards, resistors, capacitors, and how current flows through electronic components.</p>
+                            <div class="roadmap-status">BUILDING FOUNDATIONS</div>
+                        </div>
+                        <div class="roadmap-line"></div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">02</div>
+                        <div class="roadmap-content">
+                            <h3>Arduino & ESP32 Basics</h3>
+                            <p>Learning microcontroller programming, GPIO control, sensors, and how to make hardware respond to code.</p>
+                            <div class="roadmap-status">LEARNING</div>
+                        </div>
+                        <div class="roadmap-line"></div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">03</div>
+                        <div class="roadmap-content">
+                            <h3>Embedded Systems</h3>
+                            <p>Exploring real-time systems, hardware communication protocols, power management, and building practical projects.</p>
+                            <div class="roadmap-status">EXPLORING</div>
+                        </div>
+                        <div class="roadmap-line"></div>
+                    </div>
+
+                    <div class="roadmap-item">
+                        <div class="roadmap-number">04</div>
+                        <div class="roadmap-content">
+                            <h3>AI + Hardware Integration</h3>
+                            <p>Connecting AI/ML with real hardware. Understanding edge AI, sensor data processing, and intelligent embedded systems.</p>
+                            <div class="roadmap-status">EXPLORING</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="section projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-label">
+                        <span class="label-number">04</span>
+                        <span class="label-text">PROJECTS</span>
+                    </div>
+                    <h2>Building real electronics projects.</h2>
+                </div>
+
+                <div class="project-lab">
+                    <div class="lab-status">
+                        <span class="status-badge">SYSTEM STATUS</span>
+                        <span class="status-value">BUILDING</span>
+                    </div>
+
+                    <div class="lab-icon">◯</div>
+
+                    <h3>PROJECT LAB</h3>
+                    <p>Real projects will appear here as I build and document them. Each project will demonstrate practical application of Electronics, Embedded Systems, and AI concepts.</p>
+
+                    <div class="lab-tags">
                         <span>ESP32</span>
                         <span>Arduino</span>
-                        <span>AI</span>
                         <span>Sensors</span>
                         <span>C/C++</span>
+                        <span>Python</span>
+                        <span>AI</span>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- LEARNING JOURNEY SECTION -->
+        <section id="approach" class="section approach-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-label">
+                        <span class="label-number">05</span>
+                        <span class="label-text">MY APPROACH</span>
+                    </div>
+                    <h2>How I learn and grow.</h2>
                 </div>
 
-            </div>
+                <div class="approach-grid">
+                    <div class="approach-card">
+                        <div class="approach-num">01</div>
+                        <h3>Curious by Nature</h3>
+                        <p>I like understanding how things work, not just using them. I dig deeper into the "why" behind circuits and code.</p>
+                    </div>
 
+                    <div class="approach-card">
+                        <div class="approach-num">02</div>
+                        <h3>Learn by Building</h3>
+                        <p>I don't believe in pure theory. I want to turn what I learn into real, working electronics and embedded systems.</p>
+                    </div>
+
+                    <div class="approach-card">
+                        <div class="approach-num">03</div>
+                        <h3>Honest About Progress</h3>
+                        <p>I'm still learning. I'd rather show my actual progress than claim expertise I don't have.</p>
+                    </div>
+
+                    <div class="approach-card">
+                        <div class="approach-num">04</div>
+                        <h3>Always Improving</h3>
+                        <p>Every project, experiment, and mistake is a chance to learn something new and build better next time.</p>
+                    </div>
+                </div>
+
+                <div class="approach-tagline">
+                    Learn. Build. Improve.
+                </div>
+            </div>
         </section>
 
-
-        <!-- =========================
-             WHY WORK WITH ME
-        ========================== -->
-
-        <section class="section philosophy-section">
-
-            <div class="section-heading">
-
-                <p class="section-number">05</p>
-
-                <p class="section-label">
-                    MY APPROACH
-                </p>
-
-                <h2>
-                    Why work with me?
-                </h2>
-
-            </div>
-
-
-            <div class="philosophy-grid">
-
-                <article class="philosophy-card">
-
-                    <span class="philosophy-number">01</span>
-
-                    <h3>
-                        Curious by nature
-                    </h3>
-
-                    <p>
-                        I like understanding how things work,
-                        not just using them.
-                    </p>
-
-                </article>
-
-
-                <article class="philosophy-card">
-
-                    <span class="philosophy-number">02</span>
-
-                    <h3>
-                        I learn by building
-                    </h3>
-
-                    <p>
-                        I want to turn what I learn in electronics
-                        and programming into real things.
-                    </p>
-
-                </article>
-
-
-                <article class="philosophy-card">
-
-                    <span class="philosophy-number">03</span>
-
-                    <h3>
-                        Honest about my skills
-                    </h3>
-
-                    <p>
-                        I'm still learning, and I prefer showing
-                        my actual progress instead of claiming
-                        expertise I don't have.
-                    </p>
-
-                </article>
-
-
-                <article class="philosophy-card">
-
-                    <span class="philosophy-number">04</span>
-
-                    <h3>
-                        Always improving
-                    </h3>
-
-                    <p>
-                        Every project, experiment and mistake is
-                        a chance to learn something new.
-                    </p>
-
-                </article>
-
-            </div>
-
-
-            <div class="philosophy-tagline">
-                Learn. Build. Improve.
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT SECTION
-        ========================== -->
-
+        <!-- CONTACT SECTION -->
         <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-label">
+                        <span class="label-number">06</span>
+                        <span class="label-text">CONTACT</span>
+                    </div>
+                    <h2>Let's connect.</h2>
+                    <p>Have an idea, opportunity, or just want to talk about electronics and technology?</p>
+                </div>
 
-            <div class="section-heading">
+                <div class="contact-cards">
+                    <a href="mailto:amankkumar551@gmail.com" class="contact-card">
+                        <span class="contact-icon">✉</span>
+                        <div class="contact-info">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">amankkumar551@gmail.com</span>
+                        </div>
+                    </a>
 
-                <p class="section-number">06</p>
-
-                <p class="section-label">
-                    CONTACT
-                </p>
-
-                <h2>
-                    Let's connect.
-                </h2>
-
-                <p>
-                    Have an idea, opportunity or just want to talk
-                    about electronics and technology?
-                </p>
-
+                    <a href="https://t.me/amankkumar551" class="contact-card" target="_blank" rel="noopener noreferrer">
+                        <span class="contact-icon">↗</span>
+                        <div class="contact-info">
+                            <span class="contact-label">Telegram</span>
+                            <span class="contact-value">@amankkumar551</span>
+                        </div>
+                    </a>
+                </div>
             </div>
-
-
-            <div class="contact-links">
-
-                <a
-                    href="mailto:amankkumar551@gmail.com"
-                    class="contact-card"
-                >
-                    <span class="contact-icon">
-                        ✉
-                    </span>
-
-                    <span class="contact-text">
-                        <small>Email</small>
-                        amankkumar551@gmail.com
-                    </span>
-                </a>
-
-
-                <a
-                    href="https://t.me/amankkumar551"
-                    class="contact-card"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span class="contact-icon">
-                        ↗
-                    </span>
-
-                    <span class="contact-text">
-                        <small>Telegram</small>
-                        @amankkumar551
-                    </span>
-                </a>
-
-            </div>
-
         </section>
 
     </main>
 
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
+    <!-- FOOTER -->
     <footer class="site-footer">
-
-        <div class="footer-content">
-
-            <div class="footer-brand">
-
-                <h3>
-                    Aman <span>kkumar</span>
-                </h3>
-
-                <p>
-                    Electronics Engineering Student
-                </p>
-
-                <p class="footer-tagline">
-                    Learn. Build. Improve.
-                </p>
-
+        <div class="footer-container">
+            <div class="footer-content">
+                <div>
+                    <h3>Aman <span>kkumar</span></h3>
+                    <p>Electronics Engineering Student</p>
+                </div>
+                <div>
+                    <p>© 2026 Aman kkumar</p>
+                    <p>Built with curiosity.</p>
+                </div>
             </div>
-
-
-            <div class="footer-bottom">
-
-                <p>
-                    © 2026 Aman kkumar
-                </p>
-
-                <p>
-                    Built with curiosity.
-                </p>
-
-            </div>
-
         </div>
-
     </footer>
 
-
-    <!-- JavaScript -->
-
     <script src="js/navigation.js"></script>
-
     <script src="js/animations.js"></script>
-
     <script src="js/main.js"></script>
 
 </body>
