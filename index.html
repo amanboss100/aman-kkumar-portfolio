@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Aman kkumar — Electronics Engineering Student exploring Electronics, Embedded Systems and AI."
+        content="Aman kkumar — Electronics Engineering Student exploring Electronics, Embedded Systems and AI. Building at the intersection of hardware and intelligent systems."
     >
 
     <meta
@@ -18,7 +18,22 @@
         content="Aman kkumar"
     >
 
-    <title>Aman kkumar | Electronics & Embedded Systems</title>
+    <meta
+        property="og:title"
+        content="Aman kkumar | Electronics & Embedded Systems"
+    >
+
+    <meta
+        property="og:description"
+        content="Electronics Engineering Student. Learning, building, and improving."
+    >
+
+    <meta
+        property="og:type"
+        content="website"
+    >
+
+    <title>Aman kkumar | Electronics & Embedded Systems Engineer</title>
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -101,14 +116,33 @@
 
         <section id="home" class="hero">
 
+            <!-- Animated background -->
+            <div class="hero-bg" aria-hidden="true">
+                <div class="circuit-grid"></div>
+                <svg class="circuit-svg" viewBox="0 0 1200 400" preserveAspectRatio="none">
+                    <defs>
+                        <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:0.1" />
+                            <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.05" />
+                        </linearGradient>
+                    </defs>
+                    <path class="circuit-path" d="M 100 200 L 300 200 L 300 100 L 500 100 L 500 300 L 700 300 L 700 150 L 900 150" 
+                          stroke="url(#circuitGradient)" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
+                    <circle class="circuit-node" cx="100" cy="200" r="4"/>
+                    <circle class="circuit-node" cx="300" cy="200" r="4"/>
+                    <circle class="circuit-node" cx="300" cy="100" r="4"/>
+                    <circle class="circuit-node" cx="500" cy="100" r="4"/>
+                </svg>
+            </div>
+
             <div class="hero-content">
 
                 <p class="hero-intro">
-                    Hi, I'm
+                    Hello, I am
                 </p>
 
-                <h1>
-                    Aman <span>kkumar</span>
+                <h1 class="hero-title">
+                    <span class="typing-text" id="typingText">Aman</span><span class="typing-cursor" id="typingCursor">|</span>
                 </h1>
 
                 <h2>
@@ -142,22 +176,27 @@
             </div>
 
 
-            <!-- Intelligent Circuit Visual -->
+            <!-- Premium Circuit Frame Visual -->
 
-            <div class="hero-visual" aria-hidden="true">
+            <div class="hero-visual">
 
-                <div class="circuit-orbit orbit-one"></div>
-
-                <div class="circuit-orbit orbit-two"></div>
-
-                <div class="circuit-core">
-                    <span></span>
+                <div class="circuit-frame">
+                    <img
+                        src="assets/images/profile.webp"
+                        alt="Aman kkumar — Electronics Engineering Student"
+                        class="profile-image"
+                    >
+                    <div class="circuit-corner corner-tl" aria-hidden="true"></div>
+                    <div class="circuit-corner corner-tr" aria-hidden="true"></div>
+                    <div class="circuit-corner corner-bl" aria-hidden="true"></div>
+                    <div class="circuit-corner corner-br" aria-hidden="true"></div>
+                    <div class="frame-glow" aria-hidden="true"></div>
                 </div>
 
-                <div class="circuit-node node-one"></div>
-                <div class="circuit-node node-two"></div>
-                <div class="circuit-node node-three"></div>
-                <div class="circuit-node node-four"></div>
+                <!-- Floating nodes -->
+                <div class="floating-node node-1" aria-hidden="true"></div>
+                <div class="floating-node node-2" aria-hidden="true"></div>
+                <div class="floating-node node-3" aria-hidden="true"></div>
 
             </div>
 
@@ -172,8 +211,10 @@
 
             <div class="section-heading">
 
+                <p class="section-number">01</p>
+
                 <p class="section-label">
-                    About Me
+                    ABOUT
                 </p>
 
                 <h2>
@@ -191,6 +232,10 @@
                         src="assets/images/profile.webp"
                         alt="Aman kkumar"
                     >
+
+                    <div class="about-label" aria-hidden="true">
+                        SYSTEM / ABOUT
+                    </div>
 
                 </div>
 
@@ -252,8 +297,10 @@
 
             <div class="section-heading">
 
+                <p class="section-number">02</p>
+
                 <p class="section-label">
-                    Skills
+                    SKILLS
                 </p>
 
                 <h2>
@@ -266,43 +313,59 @@
             <div class="skills-grid">
 
                 <article class="skill-card">
+                    <div class="skill-icon">⚡</div>
                     <h3>Basic Electronics</h3>
                     <p>Building Foundations</p>
+                    <span class="skill-status">● ACTIVE</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">🤖</div>
                     <h3>Arduino</h3>
                     <p>Learning</p>
+                    <span class="skill-status">● LEARNING</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">📡</div>
                     <h3>ESP32</h3>
                     <p>Learning &amp; Experimenting</p>
+                    <span class="skill-status">● EXPLORING</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">🔧</div>
                     <h3>Embedded Systems</h3>
                     <p>Exploring</p>
+                    <span class="skill-status">● EXPLORING</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">🐍</div>
                     <h3>Python</h3>
                     <p>Improving</p>
+                    <span class="skill-status">● ACTIVE</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">⌨️</div>
                     <h3>C / C++</h3>
                     <p>Learning</p>
+                    <span class="skill-status">● LEARNING</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">🧠</div>
                     <h3>AI</h3>
                     <p>Exploring</p>
+                    <span class="skill-status">● EXPLORING</span>
                 </article>
 
                 <article class="skill-card">
+                    <div class="skill-icon">🔗</div>
                     <h3>Git &amp; GitHub</h3>
                     <p>Learning</p>
+                    <span class="skill-status">● LEARNING</span>
                 </article>
 
             </div>
@@ -318,8 +381,10 @@
 
             <div class="section-heading">
 
+                <p class="section-number">03</p>
+
                 <p class="section-label">
-                    Currently Building
+                    CURRENTLY BUILDING
                 </p>
 
                 <h2>
@@ -347,7 +412,7 @@
                     </p>
 
                     <span class="status">
-                        Learning
+                        LEARNING
                     </span>
 
                 </article>
@@ -369,7 +434,7 @@
                     </p>
 
                     <span class="status">
-                        Building Foundations
+                        BUILDING FOUNDATIONS
                     </span>
 
                 </article>
@@ -391,7 +456,7 @@
                     </p>
 
                     <span class="status">
-                        Exploring
+                        EXPLORING
                     </span>
 
                 </article>
@@ -413,7 +478,7 @@
                     </p>
 
                     <span class="status">
-                        Exploring
+                        EXPLORING
                     </span>
 
                 </article>
@@ -431,8 +496,10 @@
 
             <div class="section-heading">
 
+                <p class="section-number">04</p>
+
                 <p class="section-label">
-                    Projects
+                    PROJECTS
                 </p>
 
                 <h2>
@@ -444,20 +511,29 @@
 
             <div class="projects-empty">
 
-                <div class="projects-empty-icon">
-                    &lt;/&gt;
+                <div class="projects-content">
+
+                    <div class="projects-empty-icon" aria-hidden="true">
+                        ◯
+                    </div>
+
+                    <h3>
+                        PROJECT LAB
+                    </h3>
+
+                    <p>
+                        Real projects will appear here as I build and document them.
+                    </p>
+
+                    <div class="project-tags" aria-hidden="true">
+                        <span>ESP32</span>
+                        <span>Arduino</span>
+                        <span>AI</span>
+                        <span>Sensors</span>
+                        <span>C/C++</span>
+                    </div>
+
                 </div>
-
-                <h3>
-                    Projects are coming.
-                </h3>
-
-                <p>
-                    I'm currently building my foundation in
-                    electronics, embedded systems and AI.
-                    Real projects will appear here as I build
-                    and document them.
-                </p>
 
             </div>
 
@@ -472,8 +548,10 @@
 
             <div class="section-heading">
 
+                <p class="section-number">05</p>
+
                 <p class="section-label">
-                    My Approach
+                    MY APPROACH
                 </p>
 
                 <h2>
@@ -486,6 +564,8 @@
             <div class="philosophy-grid">
 
                 <article class="philosophy-card">
+
+                    <span class="philosophy-number">01</span>
 
                     <h3>
                         Curious by nature
@@ -501,6 +581,8 @@
 
                 <article class="philosophy-card">
 
+                    <span class="philosophy-number">02</span>
+
                     <h3>
                         I learn by building
                     </h3>
@@ -514,6 +596,8 @@
 
 
                 <article class="philosophy-card">
+
+                    <span class="philosophy-number">03</span>
 
                     <h3>
                         Honest about my skills
@@ -529,6 +613,8 @@
 
 
                 <article class="philosophy-card">
+
+                    <span class="philosophy-number">04</span>
 
                     <h3>
                         Always improving
@@ -559,8 +645,10 @@
 
             <div class="section-heading">
 
+                <p class="section-number">06</p>
+
                 <p class="section-label">
-                    Contact
+                    CONTACT
                 </p>
 
                 <h2>
@@ -582,10 +670,10 @@
                     class="contact-card"
                 >
                     <span class="contact-icon">
-                        @
+                        ✉
                     </span>
 
-                    <span>
+                    <span class="contact-text">
                         <small>Email</small>
                         amankkumar551@gmail.com
                     </span>
@@ -602,7 +690,7 @@
                         ↗
                     </span>
 
-                    <span>
+                    <span class="contact-text">
                         <small>Telegram</small>
                         @amankkumar551
                     </span>
