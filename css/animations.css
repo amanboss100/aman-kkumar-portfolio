@@ -453,3 +453,39 @@ body {
     }
 
   }
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(25px);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
+    transition-delay:
+        var(--animation-delay, 0ms);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Circuit follows cursor slightly */
+
+.hero-visual {
+    transform:
+        translate(
+            var(--mouse-x, 0px),
+            var(--mouse-y, 0px)
+        );
+
+    transition:
+        transform 0.15s ease-out;
+}
