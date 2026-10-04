@@ -1,54 +1,37 @@
-/* =========================================
-   NAVIGATION
-========================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const mainNav = document.querySelector(".main-nav");
+    const navLinks = document.querySelectorAll(".main-nav a");
 
-const menuToggle =
-    document.getElementById("menuToggle");
-
-const navLinks =
-    document.getElementById("navLinks");
-
-
-if (menuToggle && navLinks) {
+    if (!menuToggle || !mainNav) return;
 
     menuToggle.addEventListener("click", () => {
+        const isOpen = mainNav.classList.toggle("active");
 
-        const isOpen =
-            navLinks.classList.toggle("active");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
-
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen
-                ? "Close navigation menu"
-                : "Open navigation menu"
-        );
-
+        menuToggle.classList.toggle("active", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        document.body.classList.toggle("menu-open", isOpen);
     });
 
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-
+    navLinks.forEach((link) => {
         link.addEventListener("click", () => {
-
-            navLinks.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuToggle.setAttribute(
-                "aria-label",
-                "Open navigation menu"
-            );
-
+            mainNav.classList.remove("active");
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
         });
-
     });
 
-}
+    document.addEventListener("click", (event) => {
+        if (
+            mainNav.classList.contains("active") &&
+            !mainNav.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+            mainNav.classList.remove("active");
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+            document.body.classList.remove("menu-open");
+        }
+    });
+});
