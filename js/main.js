@@ -1,220 +1,126 @@
-const pageLoader = document.querySelector(".page-loader");
+hireForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-window.addEventListener("load", () => {
-    pageLoader?.classList.add("hidden");
-});
+    if (!formStatus) return;
 
-document.addEventListener("DOMContentLoaded", () => {
-    const root = document.documentElement;
-    const themeToggle = document.querySelector(".theme-toggle");
-    const typingTarget = document.querySelector("#typingTarget");
-    const hireForm = document.querySelector("#contactForm");
-    const presetButtons = document.querySelectorAll(".preset-btn");
-    const messageField = document.querySelector("#message");
-    const formStatus = document.querySelector("#formStatus");
-    const rippleHosts = document.querySelectorAll(
-        "button, .btn, .social-link, .skill-card, .project-card, .approach-card"
+    const submitButton = hireForm.querySelector(
+        'button[type="submit"]'
     );
 
-    const roles = [
-        "Electronics Engineering Student",
-        "Web Developer",
-        "Python Programmer",
-        "AI Learner",
-        "Embedded Systems Learner"
-    ];
+    const nameInput = hireForm.querySelector("#name");
+    const emailInput = hireForm.querySelector("#email");
+    const projectTypeInput = hireForm.querySelector("#projectType");
+    const messageInput = hireForm.querySelector("#message");
+    const consentInput = hireForm.querySelector("#consent");
 
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+    const name = nameInput?.value.trim() || "";
+    const email = emailInput?.value.trim() || "";
+    const projectType = projectTypeInput?.value || "";
+    const message = messageInput?.value.trim() || "";
+    const consent = consentInput?.checked || false;
 
-    const savedTheme = localStorage.getItem("portfolio-theme");
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (savedTheme === "light" || savedTheme === "dark") {
-        root.setAttribute("data-theme", savedTheme);
-    } else {
-        root.setAttribute(
-            "data-theme",
-            window.matchMedia("(prefers-color-scheme: light)").matches
-                ? "light"
-                : "dark"
-        );
+    if (!name) {
+        formStatus.textContent = "Please enter your name.";
+        formStatus.className = "form-status error";
+        nameInput?.focus();
+        return;
     }
 
-    const updateThemeIcon = () => {
-        if (!themeToggle) return;
+    if (!email || !emailPattern.test(email)) {
+        formStatus.textContent =
+            "Please enter a valid email address.";
+        formStatus.className = "form-status error";
+        emailInput?.focus();
+        return;
+    }
 
-        const isLight = root.getAttribute("data-theme") === "light";
+    if (!projectType) {
+        formStatus.textContent =
+            "Please select an inquiry type.";
+        formStatus.className = "form-status error";
+        projectTypeInput?.focus();
+        return;
+    }
 
-        themeToggle.setAttribute(
-            "aria-label",
-            isLight ? "Switch to dark mode" : "Switch to light mode"
-        );
+    if (!message) {
+        formStatus.textContent =
+            "Please enter your message.";
+        formStatus.className = "form-status error";
+        messageInput?.focus();
+        return;
+    }
 
-        const icon = themeToggle.querySelector("i");
+    if (message.length < 10) {
+        formStatus.textContent =
+            "Please write at least 10 characters in your message.";
+        formStatus.className = "form-status error";
+        messageInput?.focus();
+        return;
+    }
 
-        if (icon) {
-            icon.className = isLight
-                ? "fa-solid fa-moon"
-                : "fa-solid fa-sun";
-        }
+    if (!consent) {
+        formStatus.textContent =
+            "Please allow me to contact you regarding this message.";
+        formStatus.className = "form-status error";
+        consentInput?.focus();
+        return;
+    }
 
-        const textIcon = themeToggle.querySelector(".theme-icon");
+    const formData = new FormData(hireForm);
 
-        if (textIcon) {
-            textIcon.textContent = isLight ? "☾" : "☀";
-        }
-    };
+    if (formData.get("botcheck")) {
+        return;
+    }
 
-    updateThemeIcon();
+    formStatus.textContent = "Sending...";
+    formStatus.className = "form-status loading";
 
-    themeToggle?.addEventListener("click", () => {
-        const currentTheme = root.getAttribute("data-theme");
-        const nextTheme = currentTheme === "light" ? "dark" : "light";
+    if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.classList.add("loading");
+    }
 
-        root.setAttribute("data-theme", nextTheme);
-        localStorage.setItem("portfolio-theme", nextTheme);
-
-        updateThemeIcon();
-    });
-
-    const typeRole = () => {
-        if (!typingTarget) return;
-
-        const currentRole = roles[roleIndex];
-
-        if (!deleting) {
-            typingTarget.textContent = currentRole.slice(0, charIndex + 1);
-            charIndex++;
-
-            if (charIndex === currentRole.length) {
-                deleting = true;
-                setTimeout(typeRole, 1700);
-                return;
+    try {
+        const response = await fetch(hireForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+                Accept: "application/json"
             }
-
-            setTimeout(typeRole, 65);
-        } else {
-            typingTarget.textContent = currentRole.slice(0, charIndex - 1);
-            charIndex--;
-
-            if (charIndex === 0) {
-                deleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                setTimeout(typeRole, 350);
-                return;
-            }
-
-            setTimeout(typeRole, 35);
-        }
-    };
-
-    typeRole();
-
-    presetButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-            const message =
-                button.dataset.message || button.textContent.trim();
-
-            if (messageField) {
-                messageField.value = message;
-                messageField.focus();
-            }
-
-            presetButtons.forEach((item) => {
-                item.classList.remove("active");
-            });
-
-            button.classList.add("active");
         });
-    });
 
-    hireForm?.addEventListener("submit", async (event) => {
-        event.preventDefault();
+        const result = await response.json();
 
-        if (!formStatus) return;
-
-        const submitButton = hireForm.querySelector(
-            'button[type="submit"]'
-        );
-
-        const formData = new FormData(hireForm);
-
-        if (formData.get("botcheck")) {
-            return;
-        }
-
-        formStatus.textContent = "Sending...";
-        formStatus.className = "form-status loading";
-
-        if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.classList.add("loading");
-        }
-
-        try {
-            const response = await fetch(hireForm.action, {
-                method: "POST",
-                body: formData,
-                headers: {
-                    Accept: "application/json"
-                }
-            });
-
-            const result = await response.json();
-
-            if (response.ok && result.success) {
-                formStatus.textContent =
-                    "Message sent successfully. I'll get back to you soon.";
-
-                formStatus.className = "form-status success";
-
-                hireForm.reset();
-
-                presetButtons.forEach((button) => {
-                    button.classList.remove("active");
-                });
-            } else {
-                throw new Error(
-                    result.message || "Unable to send your message."
-                );
-            }
-        } catch (error) {
+        if (response.ok && result.success) {
             formStatus.textContent =
-                error.message ||
-                "Something went wrong. Please try again.";
+                "Message sent successfully. I'll get back to you soon.";
 
-            formStatus.className = "form-status error";
-        } finally {
-            if (submitButton) {
-                submitButton.disabled = false;
-                submitButton.classList.remove("loading");
-            }
-        }
-    });
+            formStatus.className = "form-status success";
 
-    rippleHosts.forEach((element) => {
-        element.classList.add("ripple-host");
+            hireForm.reset();
 
-        element.addEventListener("pointerdown", (event) => {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement("span");
-
-            ripple.className = "ripple";
-            ripple.style.left = `${event.clientX - rect.left}px`;
-            ripple.style.top = `${event.clientY - rect.top}px`;
-
-            element.appendChild(ripple);
-
-            ripple.addEventListener("animationend", () => {
-                ripple.remove();
+            presetButtons.forEach((button) => {
+                button.classList.remove("active");
             });
-        });
-    });
+        } else {
+            throw new Error(
+                result.message ||
+                "Unable to send your message."
+            );
+        }
+    } catch (error) {
+        formStatus.textContent =
+            error.message ||
+            "Something went wrong. Please try again.";
 
-    const currentYear = document.querySelector("#currentYear");
-
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
+        formStatus.className = "form-status error";
+    } finally {
+        if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.classList.remove("loading");
+        }
     }
 });
