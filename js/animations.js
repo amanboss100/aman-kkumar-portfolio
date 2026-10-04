@@ -1,61 +1,47 @@
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        ".section-header, .skill-card, .roadmap-item, .approach-card, .project-lab, .hire-form"
+document.addEventListener("DOMContentLoaded", () => {
+    const revealElements = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right"
     );
 
-
-revealElements.forEach((element) => {
-
-    element.classList.add("reveal");
-
-});
-
-
-if ("IntersectionObserver" in window) {
-
-    const observer =
-        new IntersectionObserver(
-            (entries, obs) => {
-
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+            (entries, observerInstance) => {
                 entries.forEach((entry) => {
-
                     if (entry.isIntersecting) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        obs.unobserve(
-                            entry.target
-                        );
-
+                        entry.target.classList.add("visible");
+                        observerInstance.unobserve(entry.target);
                     }
-
                 });
-
             },
             {
-                threshold: 0.12
+                threshold: 0.12,
+                rootMargin: "0px 0px -50px 0px"
             }
         );
 
+        revealElements.forEach((element) => observer.observe(element));
+    } else {
+        revealElements.forEach((element) => {
+            element.classList.add("visible");
+        });
+    }
 
-    revealElements.forEach((element) => {
+    document.querySelectorAll("a[href^='#']").forEach((link) => {
+        link.addEventListener("click", (event) => {
+            const targetId = link.getAttribute("href");
 
-        observer.observe(element);
+            if (!targetId || targetId === "#") return;
 
+            const target = document.querySelector(targetId);
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
     });
-
-} else {
-
-    revealElements.forEach((element) => {
-
-        element.classList.add("visible");
-
-    });
-
-}
+});
