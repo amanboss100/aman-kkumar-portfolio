@@ -1,491 +1,128 @@
-/* =========================================================
-   AMAN KKUMAR — PORTFOLIO
-   Animation Stylesheet
-   ========================================================= */
+/* =========================================
+   ANIMATIONS
+========================================= */
 
+@keyframes pulse {
 
-/* =========================================================
-   1. PAGE LOAD
-   ========================================================= */
-
-@keyframes pageFadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-body {
-    animation: pageFadeIn 0.8s ease both;
-}
-
-
-/* =========================================================
-   2. HERO CONTENT
-   ========================================================= */
-
-@keyframes heroReveal {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero-intro {
-    animation:
-        heroReveal 0.7s ease 0.15s both;
-}
-
-.hero h1 {
-    animation:
-        heroReveal 0.7s ease 0.25s both;
-}
-
-.hero h2 {
-    animation:
-        heroReveal 0.7s ease 0.35s both;
-}
-
-.hero-description {
-    animation:
-        heroReveal 0.7s ease 0.45s both;
-}
-
-.hero-buttons {
-    animation:
-        heroReveal 0.7s ease 0.55s both;
-}
-
-.hero-tagline {
-    animation:
-        heroReveal 0.7s ease 0.65s both;
-}
-
-
-/* =========================================================
-   3. CIRCUIT CORE
-   ========================================================= */
-
-@keyframes corePulse {
     0%,
     100% {
-        box-shadow:
-            0 0 35px var(--glow-cyan),
-            inset 0 0 25px
-            rgba(67, 217, 255, 0.04);
-    }
-
-    50% {
-        box-shadow:
-            0 0 65px var(--glow-cyan),
-            inset 0 0 35px
-            rgba(67, 217, 255, 0.08);
-    }
-}
-
-.circuit-core {
-    animation:
-        corePulse 3s ease-in-out infinite;
-}
-
-
-/* Core center */
-
-@keyframes nodePulse {
-    0%,
-    100% {
+        opacity: 1;
         transform: scale(1);
-        opacity: 0.8;
     }
 
     50% {
-        transform: scale(1.5);
-        opacity: 1;
+        opacity: 0.5;
+        transform: scale(0.75);
     }
 }
 
-.circuit-core span {
-    animation:
-        nodePulse 2s ease-in-out infinite;
-}
 
+@keyframes blink {
 
-/* =========================================================
-   4. CIRCUIT ORBITS
-   ========================================================= */
-
-@keyframes orbitRotateOne {
-    from {
-        transform:
-            rotate(25deg);
-    }
-
-    to {
-        transform:
-            rotate(385deg);
-    }
-}
-
-@keyframes orbitRotateTwo {
-    from {
-        transform:
-            rotate(-25deg);
-    }
-
-    to {
-        transform:
-            rotate(-385deg);
-    }
-}
-
-.orbit-one {
-    animation:
-        orbitRotateOne 18s linear infinite;
-}
-
-.orbit-two {
-    animation:
-        orbitRotateTwo 24s linear infinite;
-}
-
-
-/* =========================================================
-   5. CIRCUIT NODES
-   ========================================================= */
-
-@keyframes nodeGlow {
     0%,
-    100% {
-        opacity: 0.45;
-
-        box-shadow:
-            0 0 7px var(--accent-blue),
-            0 0 15px
-            rgba(77, 163, 255, 0.3);
-    }
-
-    50% {
+    45% {
         opacity: 1;
+    }
 
-        box-shadow:
-            0 0 12px var(--accent-cyan),
-            0 0 30px
-            rgba(67, 217, 255, 0.55);
+    46%,
+    100% {
+        opacity: 0;
     }
 }
 
-.circuit-node {
-    animation:
-        nodeGlow 2.5s ease-in-out infinite;
-}
 
-.node-one {
-    animation-delay: 0s;
-}
+@keyframes scan {
 
-.node-two {
-    animation-delay: 0.7s;
-}
-
-.node-three {
-    animation-delay: 1.4s;
-}
-
-.node-four {
-    animation-delay: 2.1s;
-}
-
-
-/* =========================================================
-   6. BUTTON HOVER
-   ========================================================= */
-
-@keyframes buttonGlow {
     0% {
-        box-shadow:
-            0 0 0 rgba(67, 217, 255, 0);
-    }
-
-    100% {
-        box-shadow:
-            0 0 25px
-            rgba(67, 217, 255, 0.12);
-    }
-}
-
-.btn-secondary:hover {
-    animation:
-        buttonGlow 0.3s ease forwards;
-}
-
-
-/* =========================================================
-   7. SKILL CARD HOVER
-   ========================================================= */
-
-.skill-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.skill-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -120%;
-
-    width: 80%;
-    height: 1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--accent-cyan),
-            transparent
-        );
-
-    transition:
-        left 0.6s ease;
-}
-
-.skill-card:hover::before {
-    left: 120%;
-}
-
-
-/* =========================================================
-   8. BUILDING CARD CIRCUIT EFFECT
-   ========================================================= */
-
-.building-card {
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.building-card:hover {
-    box-shadow:
-        0 15px 45px
-        rgba(0, 0, 0, 0.25);
-}
-
-@keyframes statusPulse {
-    0%,
-    100% {
-        box-shadow:
-            0 0 0
-            rgba(67, 217, 255, 0);
+        transform: translateY(0);
     }
 
     50% {
-        box-shadow:
-            0 0 15px
-            rgba(67, 217, 255, 0.08);
+        transform: translateY(180px);
+    }
+
+    100% {
+        transform: translateY(360px);
     }
 }
 
-.status {
-    animation:
-        statusPulse 3s ease-in-out infinite;
-}
 
+@keyframes float {
 
-/* =========================================================
-   9. CONTACT CARD
-   ========================================================= */
-
-.contact-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.contact-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: -100%;
-
-    width: 60%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(67, 217, 255, 0.035),
-            transparent
-        );
-
-    transform: skewX(-20deg);
-
-    transition:
-        left 0.7s ease;
-}
-
-.contact-card:hover::before {
-    left: 140%;
-}
-
-
-/* =========================================================
-   10. ABOUT IMAGE
-   ========================================================= */
-
-@keyframes imageFloat {
     0%,
     100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
     }
 }
 
-.about-image img {
+
+.floating-chip {
+
     animation:
-        imageFloat 5s ease-in-out infinite;
+        float 4s ease-in-out infinite;
 }
 
 
-/* =========================================================
-   11. PROJECT EMPTY STATE
-   ========================================================= */
+.chip-two {
 
-@keyframes projectIconPulse {
-    0%,
-    100% {
-        transform: scale(1);
-
-        box-shadow:
-            0 0 0
-            rgba(67, 217, 255, 0);
-    }
-
-    50% {
-        transform: scale(1.04);
-
-        box-shadow:
-            0 0 25px
-            rgba(67, 217, 255, 0.08);
-    }
-}
-
-.projects-empty-icon {
-    animation:
-        projectIconPulse 3s ease-in-out infinite;
+    animation-delay:
+        -1.3s;
 }
 
 
-/* =========================================================
-   12. PHILOSOPHY CARDS
-   ========================================================= */
+.chip-three {
 
-.philosophy-card {
+    animation-delay:
+        -2.4s;
+}
+
+
+/* Scroll reveal */
+
+.reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(25px);
+
     transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        background 0.3s ease;
-}
-
-.philosophy-card:hover {
-    transform: translateX(5px);
-
-    border-left-color:
-        var(--accent-cyan);
-
-    background:
-        rgba(67, 217, 255, 0.025);
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 
-/* =========================================================
-   13. FOOTER
-   ========================================================= */
+.reveal.visible {
 
-@keyframes taglineGlow {
-    0%,
-    100% {
-        opacity: 0.65;
-    }
+    opacity: 1;
 
-    50% {
-        opacity: 1;
-    }
-}
-
-.footer-tagline {
-    animation:
-        taglineGlow 3s ease-in-out infinite;
+    transform:
+        translateY(0);
 }
 
 
-/* =========================================================
-   14. REDUCED MOTION
-   Accessibility
-   ========================================================= */
+/* Reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
     *::after {
+
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
 
-        scroll-behavior: auto !important;
+        animation-iteration-count:
+            1 !important;
 
-        transition-duration: 0.01ms !important;
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
     }
 
-  }
-
-
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
-
-.scroll-reveal {
-    opacity: 0;
-    transform: translateY(25px);
-
-    transition:
-        opacity 0.7s ease,
-        transform 0.7s ease;
-
-    transition-delay:
-        var(--animation-delay, 0ms);
-}
-
-.scroll-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* Circuit follows cursor slightly */
-
-.hero-visual {
-    transform:
-        translate(
-            var(--mouse-x, 0px),
-            var(--mouse-y, 0px)
-        );
-
-    transition:
-        transform 0.15s ease-out;
 }
