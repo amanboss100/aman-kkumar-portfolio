@@ -1,14 +1,14 @@
 const pageLoader = document.querySelector(".page-loader");
 
-if (pageLoader) {
-    pageLoader.classList.add("hidden");
-}
+window.addEventListener("load", () => {
+    pageLoader?.classList.add("hidden");
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.documentElement;
     const themeToggle = document.querySelector(".theme-toggle");
     const typingTarget = document.querySelector("#typingTarget");
-    const hireForm = document.querySelector("#hireForm");
+    const hireForm = document.querySelector("#contactForm");
     const presetButtons = document.querySelectorAll(".preset-btn");
     const messageField = document.querySelector("#message");
     const formStatus = document.querySelector("#formStatus");
@@ -57,6 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
             icon.className = isLight
                 ? "fa-solid fa-moon"
                 : "fa-solid fa-sun";
+        }
+
+        const textIcon = themeToggle.querySelector(".theme-icon");
+
+        if (textIcon) {
+            textIcon.textContent = isLight ? "☾" : "☀";
         }
     };
 
@@ -107,7 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     presetButtons.forEach((button) => {
         button.addEventListener("click", () => {
-            const message = button.dataset.message || button.textContent.trim();
+            const message =
+                button.dataset.message || button.textContent.trim();
 
             if (messageField) {
                 messageField.value = message;
@@ -159,6 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok && result.success) {
                 formStatus.textContent =
                     "Message sent successfully. I'll get back to you soon.";
+
                 formStatus.className = "form-status success";
 
                 hireForm.reset();
@@ -175,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
             formStatus.textContent =
                 error.message ||
                 "Something went wrong. Please try again.";
+
             formStatus.className = "form-status error";
         } finally {
             if (submitButton) {
