@@ -1,76 +1,54 @@
-/* =========================================================
-   AMAN KKUMAR — PORTFOLIO
-   Navigation JavaScript
-   Mobile Menu & Navigation Management
-   ========================================================= */
+/* =========================================
+   NAVIGATION
+========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+const menuToggle =
+    document.getElementById("menuToggle");
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-
-    if (!menuToggle || !navLinks) {
-        return;
-    }
+const navLinks =
+    document.getElementById("navLinks");
 
 
-    /* =====================================================
-       1. MOBILE MENU TOGGLE
-    ===================================================== */
+if (menuToggle && navLinks) {
 
     menuToggle.addEventListener("click", () => {
-        const isOpen = navLinks.classList.toggle("active");
-        
-        menuToggle.setAttribute("aria-expanded", isOpen);
-        menuToggle.style.color = isOpen ? "var(--accent-cyan)" : "var(--text-primary)";
+
+        const isOpen =
+            navLinks.classList.toggle("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+        );
+
     });
 
 
-    /* =====================================================
-       2. CLOSE MENU AFTER CLICKING A LINK
-    ===================================================== */
+    navLinks.querySelectorAll("a").forEach((link) => {
 
-    const navigationLinks = navLinks.querySelectorAll("a");
-
-    navigationLinks.forEach((link) => {
         link.addEventListener("click", () => {
+
             navLinks.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.style.color = "var(--text-primary)";
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
         });
+
     });
 
-
-    /* =====================================================
-       3. CLOSE MENU WHEN CLICKING OUTSIDE
-    ===================================================== */
-
-    document.addEventListener("click", (event) => {
-        const clickedInsideMenu = navLinks.contains(event.target);
-        const clickedToggle = menuToggle.contains(event.target);
-
-        if (
-            !clickedInsideMenu &&
-            !clickedToggle &&
-            navLinks.classList.contains("active")
-        ) {
-            navLinks.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.style.color = "var(--text-primary)";
-        }
-    });
-
-
-    /* =====================================================
-       4. CLOSE MENU ON RESIZE TO DESKTOP
-    ===================================================== */
-
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 768) {
-            navLinks.classList.remove("active");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.style.color = "var(--text-primary)";
-        }
-    });
-
-});
+}
