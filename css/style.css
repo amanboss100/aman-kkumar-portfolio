@@ -749,6 +749,76 @@ section {
     gap: 18px;
 }
 
+/* ================================
+   GLOBAL TYPOGRAPHY
+================================ */
+
+:root {
+    --font-main: "Space Grotesk", sans-serif;
+}
+
+html,
+body {
+    font-family: var(--font-main);
+}
+
+/* Everything inherits the new font */
+body,
+button,
+input,
+textarea,
+select,
+option {
+    font-family: var(--font-main);
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-main);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+/* Paragraphs */
+p {
+    font-family: var(--font-main);
+    font-weight: 400;
+    line-height: 1.75;
+}
+
+/* Navigation */
+nav,
+nav a {
+    font-family: var(--font-main);
+    font-weight: 500;
+}
+
+/* Buttons */
+button,
+.btn {
+    font-family: var(--font-main);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Form */
+input,
+textarea,
+select {
+    font-family: var(--font-main);
+}
+
+/* Small labels */
+label,
+small {
+    font-family: var(--font-main);
+}
+
 .skill-card {
     position: relative;
     padding: 28px;
