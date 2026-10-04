@@ -107,7 +107,7 @@ updateActiveNav();
 ========================================================= */
 
 const typewriterElement =
-    document.querySelector(".typewriter");
+    document.querySelector("#typingTarget");
 
 if (typewriterElement) {
     const words = [
