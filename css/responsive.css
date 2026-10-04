@@ -1,874 +1,387 @@
-/* =========================================================
-   AMAN KKUMAR — PORTFOLIO
-   Responsive Stylesheet
-   Mobile • Tablet • Desktop Optimization
-   ========================================================= */
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
 
+@media (max-width: 1000px) {
 
-/* =========================================================
-   1. TABLETS & SMALL LAPTOPS (1024px - 1100px)
-   ========================================================= */
+    .hero-grid {
 
-@media (max-width: 1100px) {
-    
-    .hero-container {
-        grid-template-columns: 1fr 0.9fr;
-        gap: 60px;
-    }
-
-    .hero-title {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-    }
-
-    .skills-map {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .approach-grid {
         grid-template-columns: 1fr;
+
+        gap: 55px;
     }
 
-    .about-content {
-        gap: 60px;
-    }
-}
-
-
-/* =========================================================
-   2. TABLETS (768px - 900px)
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    /* -------- Global -------- */
-    
-    .section-container {
-        padding: 0 30px;
-    }
-
-    .section {
-        padding: 100px 0;
-    }
-
-    /* -------- Navigation -------- */
-
-    .nav-links {
-        gap: 20px;
-    }
-
-    .nav-links a {
-        font-size: 0.85rem;
-    }
-
-    /* -------- Hero -------- */
-
-    .hero {
-        padding-top: 100px;
-    }
-
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-        text-align: center;
-    }
 
     .hero-content {
-        align-items: center;
+
+        max-width: 750px;
     }
 
-    .hero-label {
-        justify-content: center;
+
+    .hero-tech {
+
+        min-height: 360px;
     }
 
-    .hero-title {
-        font-size: clamp(2.2rem, 8vw, 4rem);
-    }
 
-    .hero-buttons {
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        max-width: 300px;
-        margin: 0 auto;
-    }
+    .about-grid {
 
-    .btn {
-        width: 100%;
-    }
-
-    .hero-visual {
-        height: 400px;
-    }
-
-    .profile-frame {
-        width: 280px;
-        height: 280px;
-    }
-
-    /* -------- About -------- */
-
-    .about-content {
         grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
     }
 
-    .about-left {
-        position: static;
+
+    .about-intro {
+
+        position: relative;
+
+        top: auto;
+
+        min-height: auto;
     }
 
-    .about-image {
-        max-width: 250px;
-        margin: 0 auto;
+
+    .skills-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .about-right {
-        align-items: center;
-    }
-
-    .about-block {
-        text-align: left;
-    }
-
-    /* -------- Skills -------- */
-
-    .skills-map {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    /* -------- Building -------- */
 
     .roadmap {
-        padding-left: 30px;
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    .roadmap-item::before {
-        left: -38px;
-    }
-
-    /* -------- Projects -------- */
-
-    .project-lab {
-        padding: 40px;
-    }
-
-    .lab-tags {
-        flex-wrap: wrap;
-    }
-
-    /* -------- Approach -------- */
 
     .approach-grid {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
-    /* -------- Contact -------- */
-
-    .contact-cards {
-        grid-template-columns: 1fr;
-    }
-
-    /* -------- Footer -------- */
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
-    }
-
-    .footer-content > div:last-child {
-        text-align: center;
-    }
 }
 
 
-/* =========================================================
-   3. MOBILE DEVICES (480px - 768px)
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* -------- Global -------- */
-
-    .section-container {
-        padding: 0 20px;
-    }
-
-    .section {
-        padding: 80px 0;
-    }
-
-    .section::before {
-        display: none;
-    }
-
-    /* -------- Header -------- */
-
-    .site-header {
-        height: auto;
-    }
+@media (max-width: 760px) {
 
     .navbar {
-        height: 64px;
-        padding: 0 20px;
+
+        min-height: 70px;
     }
 
-    .brand {
-        font-size: 1rem;
+
+    .nav-links {
+
+        position: fixed;
+
+        top: 70px;
+        left: 15px;
+        right: 15px;
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 12px;
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 18px;
+
+        background:
+            rgba(7,13,21,0.97);
+
+        backdrop-filter:
+            blur(20px);
+
+        box-shadow:
+            0 20px 50px rgba(0,0,0,0.35);
     }
 
-    .menu-toggle {
+
+    .nav-links.active {
+
         display: flex;
     }
 
-    .nav-links {
-        position: absolute;
-        top: 64px;
-        left: 10px;
-        right: 10px;
-        flex-direction: column;
-        gap: 0;
-        padding: 12px;
-        background: rgba(5, 7, 11, 0.95);
-        border: 1px solid var(--border-light);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-lg);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px);
-        transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-        z-index: 999;
-    }
 
-    .nav-links.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-    }
+    .nav-links li a {
 
-    .nav-links a {
-        padding: 12px 16px;
         display: block;
-        border-radius: var(--radius-sm);
-        font-size: 0.9rem;
-        color: var(--text-secondary);
+
+        padding: 13px;
+
+        border-radius: 10px;
     }
 
-    .nav-links a:hover {
-        background: rgba(34, 211, 238, 0.1);
-        color: var(--text-primary);
+
+    .nav-links li a:hover {
+
+        background:
+            rgba(0,213,245,0.06);
     }
+
 
     .nav-links a::after {
         display: none;
     }
 
-    .nav-links a.active {
-        background: rgba(34, 211, 238, 0.15);
-        color: var(--accent-cyan);
+
+    .menu-toggle {
+
+        display: block;
     }
 
-    /* -------- Hero -------- */
+
+    .nav-actions {
+
+        margin-left: auto;
+    }
+
+
+    .nav-actions .hire-btn {
+
+        display: none;
+    }
+
 
     .hero {
-        padding-top: 80px;
-        padding-bottom: 60px;
+
+        padding-top: 120px;
     }
 
-    .hero::after {
-        right: -200px;
-        width: 400px;
-        height: 400px;
-    }
-
-    .hero-label {
-        font-size: 0.8rem;
-    }
 
     .hero-title {
-        font-size: clamp(2rem, 10vw, 3.5rem);
-        line-height: 1.2;
-    }
-
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .hero-description {
-        font-size: 0.95rem;
-        max-width: 100%;
-    }
-
-    .hero-buttons {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-        max-width: 100%;
-    }
-
-    .btn {
-        min-height: 44px;
-        font-size: 0.9rem;
-    }
-
-    .hero-status {
-        font-size: 0.8rem;
-        justify-content: center;
-    }
-
-    .hero-tagline {
-        font-size: 0.75rem;
-    }
-
-    .hero-visual {
-        height: 350px;
-    }
-
-    .profile-frame {
-        width: 260px;
-        height: 260px;
-        box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
-    }
-
-    .outer-ring {
-        width: 360px;
-        height: 360px;
-    }
-
-    .inner-ring {
-        width: 240px;
-        height: 240px;
-    }
-
-    .tech-label {
-        font-size: 0.65rem;
-        opacity: 0.3;
-    }
-
-    /* -------- Section Header -------- */
-
-    .section-header {
-        margin-bottom: 45px;
-        text-align: center;
-    }
-
-    .section-header h2 {
-        font-size: clamp(1.6rem, 6vw, 2.5rem);
-    }
-
-    .section-header > p {
-        font-size: 0.9rem;
-    }
-
-    .label-number {
-        font-size: 2rem;
-    }
-
-    .label-text {
-        font-size: 0.7rem;
-    }
-
-    /* -------- About -------- */
-
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .about-image {
-        max-width: 200px;
-    }
-
-    .about-block {
-        padding: 20px;
-    }
-
-    .about-block h3 {
-        font-size: 1rem;
-    }
-
-    .about-block p {
-        font-size: 0.9rem;
-    }
-
-    /* -------- Skills -------- */
-
-    .skills-map {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
-    .skill-category {
-        padding: 20px;
-    }
-
-    .category-title {
-        font-size: 0.7rem;
-        margin-bottom: 12px;
-    }
-
-    .skill-item {
-        font-size: 0.85rem;
-        gap: 8px;
-    }
-
-    .skill-icon {
-        font-size: 1rem;
-        flex-shrink: 0;
-    }
-
-    /* -------- Building -------- */
-
-    .roadmap {
-        padding-left: 24px;
-    }
-
-    .roadmap::before {
-        width: 2px;
-        left: -2px;
-    }
-
-    .roadmap-item {
-        padding: 24px;
-        margin-bottom: 24px;
-    }
-
-    .roadmap-item::before {
-        left: -30px;
-        width: 10px;
-        height: 10px;
-    }
-
-    .roadmap-number {
-        font-size: 1.8rem;
-    }
-
-    .roadmap-content h3 {
-        font-size: 1.05rem;
-    }
-
-    .roadmap-content p {
-        font-size: 0.9rem;
-    }
-
-    .roadmap-status {
-        font-size: 0.65rem;
-        padding: 5px 10px;
-    }
-
-    /* -------- Projects -------- */
-
-    .project-lab {
-        padding: 35px 25px;
-        min-height: 350px;
-    }
-
-    .lab-icon {
-        font-size: 2.5rem;
-        margin-bottom: 15px;
-    }
-
-    .project-lab h3 {
-        font-size: 1.5rem;
-    }
-
-    .project-lab p {
-        font-size: 0.9rem;
-    }
-
-    .lab-tags {
-        gap: 8px;
-    }
-
-    .lab-tags span {
-        font-size: 0.75rem;
-        padding: 6px 12px;
-    }
-
-    /* -------- Approach -------- */
-
-    .approach-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .approach-card {
-        padding: 24px;
-    }
-
-    .approach-num {
-        font-size: 2rem;
-    }
-
-    .approach-card h3 {
-        font-size: 1rem;
-    }
-
-    .approach-card p {
-        font-size: 0.9rem;
-    }
-
-    .approach-tagline {
-        font-size: 0.9rem;
-    }
-
-    /* -------- Contact -------- */
-
-    .contact-section .section-header {
-        margin-bottom: 40px;
-    }
-
-    .contact-section .section-header h2 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem);
-    }
-
-    .contact-section .section-header > p {
-        font-size: 0.9rem;
-    }
-
-    .contact-cards {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .contact-card {
-        padding: 20px;
-        min-height: auto;
-    }
-
-    .contact-icon {
-        width: 44px;
-        height: 44px;
-        flex-shrink: 0;
-    }
-
-    .contact-label {
-        font-size: 0.7rem;
-    }
-
-    .contact-value {
-        font-size: 0.9rem;
-    }
-
-    /* -------- Footer -------- */
-
-    .site-footer {
-        padding: 50px 0;
-    }
-
-    .footer-container {
-        padding: 0 20px;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .footer-content h3 {
-        font-size: 1rem;
-    }
-
-    .footer-content p {
-        font-size: 0.85rem;
-    }
-}
-
-
-/* =========================================================
-   4. SMALL MOBILE DEVICES (360px - 480px)
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-    /* -------- Global -------- */
-
-    .section-container {
-        padding: 0 16px;
-    }
-
-    .section {
-        padding: 70px 0;
-    }
-
-    /* -------- Header -------- */
-
-    .navbar {
-        padding: 0 16px;
-    }
-
-    .brand {
-        font-size: 0.95rem;
-    }
-
-    /* -------- Hero -------- */
-
-    .hero {
-        padding-top: 70px;
-        padding-bottom: 50px;
-    }
-
-    .hero::after {
-        right: -250px;
-        width: 350px;
-        height: 350px;
-    }
-
-    .hero-title {
-        font-size: clamp(1.8rem, 8vw, 3rem);
-    }
 
-    .hero-subtitle {
-        font-size: 1rem;
+        font-size:
+            clamp(3.1rem, 16vw, 5rem);
     }
 
-    .hero-description {
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-
-    .hero-visual {
-        height: 300px;
-    }
-
-    .profile-frame {
-        width: 220px;
-        height: 220px;
-    }
-
-    .outer-ring {
-        width: 300px;
-        height: 300px;
-    }
-
-    .inner-ring {
-        width: 200px;
-        height: 200px;
-    }
-
-    .frame-node {
-        width: 5px;
-        height: 5px;
-    }
-
-    /* -------- Section Header -------- */
-
-    .section-header {
-        margin-bottom: 35px;
-    }
-
-    .section-header h2 {
-        font-size: clamp(1.4rem, 5vw, 2.2rem);
-        line-height: 1.15;
-    }
-
-    .label-number {
-        font-size: 1.5rem;
-    }
-
-    /* -------- About -------- */
-
-    .about-image {
-        max-width: 180px;
-    }
-
-    .about-block {
-        padding: 16px;
-    }
-
-    .about-block h3 {
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-    }
-
-    .about-block p {
-        font-size: 0.85rem;
-        line-height: 1.5;
-    }
-
-    /* -------- Skills -------- */
-
-    .skills-map {
-        grid-template-columns: 1fr;
-    }
-
-    .skill-category {
-        padding: 16px;
-    }
-
-    .category-title {
-        font-size: 0.65rem;
-    }
-
-    .skill-item {
-        font-size: 0.8rem;
-    }
-
-    /* -------- Building -------- */
-
-    .roadmap {
-        padding-left: 20px;
-    }
-
-    .roadmap-item {
-        padding: 18px;
-        margin-bottom: 20px;
-    }
-
-    .roadmap-item::before {
-        left: -26px;
-    }
-
-    .roadmap-number {
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-    }
-
-    .roadmap-content h3 {
-        font-size: 1rem;
-    }
-
-    .roadmap-content p {
-        font-size: 0.85rem;
-    }
 
-    /* -------- Projects -------- */
+    .hero-tech {
 
-    .project-lab {
-        padding: 30px 20px;
         min-height: 300px;
     }
 
-    .lab-icon {
-        font-size: 2rem;
+
+    .tech-code {
+
+        font-size: 0.67rem;
+
+        padding: 22px 18px;
+
+        overflow-x: auto;
     }
 
-    .project-lab h3 {
-        font-size: 1.3rem;
+
+    .floating-chip {
+
+        font-size: 0.62rem;
+
+        padding: 7px 9px;
     }
 
-    .project-lab p {
-        font-size: 0.85rem;
+
+    .chip-one {
+        right: 2%;
     }
 
-    .lab-tags {
-        gap: 6px;
+
+    .chip-two {
+        left: 2%;
     }
 
-    .lab-tags span {
-        font-size: 0.7rem;
-        padding: 5px 10px;
+
+    .chip-three {
+        right: 7%;
     }
 
-    /* -------- Approach -------- */
 
-    .approach-card {
-        padding: 18px;
+    .section {
+
+        padding:
+            85px 17px;
     }
 
-    .approach-num {
-        font-size: 1.5rem;
-        margin-bottom: 8px;
+
+    .section-header {
+
+        margin-bottom: 38px;
     }
 
-    .approach-card h3 {
-        font-size: 0.95rem;
-    }
-
-    .approach-card p {
-        font-size: 0.85rem;
-    }
-
-    .approach-tagline {
-        font-size: 0.85rem;
-    }
-
-    /* -------- Contact -------- */
-
-    .contact-card {
-        padding: 16px;
-        gap: 12px;
-    }
-
-    .contact-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
-    }
-
-    .contact-label {
-        font-size: 0.65rem;
-    }
-
-    .contact-value {
-        font-size: 0.85rem;
-    }
-
-    /* -------- Footer -------- */
-
-    .footer-content {
-        gap: 16px;
-    }
-
-    .footer-content h3 {
-        font-size: 0.95rem;
-    }
-
-    .footer-content p {
-        font-size: 0.8rem;
-    }
-}
-
-
-/* =========================================================
-   5. VERY SMALL DEVICES (< 360px)
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-    .section-container {
-        padding: 0 12px;
-    }
-
-    .hero-title {
-        font-size: clamp(1.6rem, 7vw, 2.8rem);
-    }
 
     .section-header h2 {
-        font-size: clamp(1.2rem, 5vw, 2rem);
+
+        font-size:
+            clamp(2rem, 10vw, 3rem);
     }
 
-    .profile-frame {
-        width: 200px;
-        height: 200px;
-    }
 
-    .skills-map {
+    .skills-grid {
+
         grid-template-columns: 1fr;
     }
 
+
     .roadmap {
-        padding-left: 16px;
+
+        grid-template-columns: 1fr;
     }
 
-    .roadmap-item::before {
-        left: -22px;
+
+    .roadmap-item {
+
+        min-height: auto;
     }
+
+
+    .approach-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .footer-main {
+
+        flex-direction: column;
+    }
+
+
+    .footer-links {
+
+        flex-wrap: wrap;
+    }
+
+
+    .footer-bottom {
+
+        flex-direction: column;
+    }
+
 }
 
 
-/* =========================================================
-   6. ACCESSIBILITY: REDUCED MOTION
-   ========================================================= */
+@media (max-width: 480px) {
 
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+    .navbar {
+
+        width:
+            calc(100% - 24px);
     }
-}
 
+
+    .brand-mark {
+
+        width: 35px;
+        height: 35px;
+    }
+
+
+    .theme-toggle {
+
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .menu-toggle {
+
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .hero-buttons {
+
+        flex-direction: column;
+    }
+
+
+    .btn {
+
+        width: 100%;
+    }
+
+
+    .hero-tech {
+
+        min-height: 270px;
+    }
+
+
+    .tech-card {
+
+        border-radius: 18px;
+    }
+
+
+    .tech-code {
+
+        font-size: 0.58rem;
+
+        line-height: 1.9;
+    }
+
+
+    .about-intro {
+
+        padding: 25px;
+    }
+
+
+    .about-number {
+
+        margin-bottom: 45px;
+    }
+
+
+    .about-block {
+
+        grid-template-columns: 30px 1fr;
+
+        gap: 10px;
+    }
+
+
+    .message-presets {
+
+        justify-content: stretch;
+    }
+
+
+    .preset-btn {
+
+        width: 100%;
+
+        text-align: left;
+    }
+
+
+    .hire-form {
+
+        padding: 20px;
+
+        border-radius: 21px;
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+
+        font-size: 16px;
+    }
+
+
+    .project-lab {
+
+        padding: 35px 20px;
+    }
+
+}
