@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://amankkumar.online/sitemap.xml
