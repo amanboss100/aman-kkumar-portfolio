@@ -1,387 +1,571 @@
-/* =========================================
-   RESPONSIVE DESIGN
-========================================= */
+@media (max-width: 1100px) {
 
-@media (max-width: 1000px) {
+    .container {
+        width: min(var(--container), calc(100% - 32px));
+    }
 
     .hero-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 55px;
+        gap: 40px;
     }
 
+    .contact-wrapper {
+        gap: 45px;
+        padding: 50px;
+    }
+
+    .project-visual {
+        right: 20px;
+        opacity: 0.65;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .main-nav {
+        gap: 0;
+    }
+
+    .nav-link {
+        padding-inline: 8px;
+        font-size: 12px;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        text-align: center;
+    }
 
     .hero-content {
-
-        max-width: 750px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-
-    .hero-tech {
-
-        min-height: 360px;
+    .hero-description {
+        max-width: 680px;
     }
 
+    .hero-visual {
+        min-height: 390px;
+    }
+
+    .hero-links {
+        justify-content: center;
+    }
 
     .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
 
+    .about-text {
+        max-width: 760px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .building-card {
+        grid-template-columns: 1fr;
+        padding: 45px;
+    }
+
+    .building-visual {
+        min-height: 300px;
+    }
+
+    .projects-grid {
         grid-template-columns: 1fr;
     }
 
-
-    .about-intro {
-
-        position: relative;
-
-        top: auto;
-
-        min-height: auto;
+    .project-card.featured {
+        grid-column: auto;
     }
 
-
-    .skills-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
+    .project-visual {
+        opacity: 0.35;
     }
-
-
-    .roadmap {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
 
     .approach-grid {
-
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
     }
 
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .contact-info > p {
+        max-width: 650px;
+    }
 }
 
 
 @media (max-width: 760px) {
 
-    .navbar {
-
-        min-height: 70px;
+    :root {
+        --header-height: 68px;
     }
-
-
-    .nav-links {
-
-        position: fixed;
-
-        top: 70px;
-        left: 15px;
-        right: 15px;
-
-        display: none;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 0;
-
-        padding: 12px;
-
-        border:
-            1px solid var(--border);
-
-        border-radius: 18px;
-
-        background:
-            rgba(7,13,21,0.97);
-
-        backdrop-filter:
-            blur(20px);
-
-        box-shadow:
-            0 20px 50px rgba(0,0,0,0.35);
-    }
-
-
-    .nav-links.active {
-
-        display: flex;
-    }
-
-
-    .nav-links li a {
-
-        display: block;
-
-        padding: 13px;
-
-        border-radius: 10px;
-    }
-
-
-    .nav-links li a:hover {
-
-        background:
-            rgba(0,213,245,0.06);
-    }
-
-
-    .nav-links a::after {
-        display: none;
-    }
-
-
-    .menu-toggle {
-
-        display: block;
-    }
-
-
-    .nav-actions {
-
-        margin-left: auto;
-    }
-
-
-    .nav-actions .hire-btn {
-
-        display: none;
-    }
-
-
-    .hero {
-
-        padding-top: 120px;
-    }
-
-
-    .hero-title {
-
-        font-size:
-            clamp(3.1rem, 16vw, 5rem);
-    }
-
-
-    .hero-tech {
-
-        min-height: 300px;
-    }
-
-
-    .tech-code {
-
-        font-size: 0.67rem;
-
-        padding: 22px 18px;
-
-        overflow-x: auto;
-    }
-
-
-    .floating-chip {
-
-        font-size: 0.62rem;
-
-        padding: 7px 9px;
-    }
-
-
-    .chip-one {
-        right: 2%;
-    }
-
-
-    .chip-two {
-        left: 2%;
-    }
-
-
-    .chip-three {
-        right: 7%;
-    }
-
 
     .section {
-
-        padding:
-            85px 17px;
+        padding: 90px 0;
     }
 
-
-    .section-header {
-
-        margin-bottom: 38px;
+    .site-header {
+        height: var(--header-height);
     }
 
+    .main-nav {
+        position: fixed;
+        top: var(--header-height);
+        left: 16px;
+        right: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(9, 13, 18, 0.96);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
 
-    .section-header h2 {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        pointer-events: none;
 
-        font-size:
-            clamp(2rem, 10vw, 3rem);
+        transition:
+            opacity 220ms ease,
+            visibility 220ms ease,
+            transform 220ms ease;
     }
 
+    html[data-theme="light"] .main-nav {
+        background: rgba(255, 255, 255, 0.97);
+    }
+
+    .main-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 0 14px;
+        border-radius: 9px;
+        font-size: 13px;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        background: var(--surface-2);
+    }
+
+    .nav-link::after {
+        left: auto;
+        right: 12px;
+        width: 3px;
+        height: 18px;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%) scaleY(0);
+        transform-origin: center;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+        transform: translateY(-50%) scaleY(1);
+    }
+
+    .menu-toggle {
+        display: grid;
+    }
+
+    .hero {
+        padding-top: calc(var(--header-height) + 45px);
+    }
+
+    .hero-name {
+        font-size: clamp(48px, 14vw, 78px);
+    }
+
+    .hero-role-wrapper {
+        justify-content: center;
+        min-height: 80px;
+        font-size: clamp(19px, 5vw, 27px);
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .hero-visual {
+        min-height: 330px;
+    }
+
+    .tech-orbit {
+        width: min(340px, 80vw);
+    }
+
+    .core-card {
+        width: 155px;
+        min-height: 155px;
+        border-radius: 25px;
+    }
+
+    .core-card strong {
+        font-size: 15px;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    .section-heading {
+        margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(34px, 9vw, 48px);
+    }
+
+    .section-heading.centered {
+        align-items: center;
+    }
 
     .skills-grid {
-
         grid-template-columns: 1fr;
     }
 
-
-    .roadmap {
-
-        grid-template-columns: 1fr;
+    .skill-card {
+        min-height: 260px;
     }
 
-
-    .roadmap-item {
-
-        min-height: auto;
+    .building-card {
+        padding: 35px 25px;
+        border-radius: 22px;
     }
 
+    .building-card h2 {
+        font-size: clamp(34px, 10vw, 48px);
+    }
+
+    .terminal-window {
+        transform: none;
+    }
+
+    .project-card,
+    .project-card.featured {
+        min-height: 380px;
+        padding: 27px;
+    }
+
+    .project-visual {
+        right: -40px;
+        width: 240px;
+    }
 
     .approach-grid {
-
         grid-template-columns: 1fr;
     }
 
-
-    .footer-main {
-
-        flex-direction: column;
+    .approach-card {
+        min-height: 220px;
     }
 
+    .approach-number {
+        margin-bottom: 45px;
+    }
+
+    .contact-wrapper {
+        padding: 35px 25px;
+        border-radius: 22px;
+    }
+
+    .contact-info h2 {
+        font-size: clamp(38px, 10vw, 50px);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 
     .footer-links {
-
         flex-wrap: wrap;
     }
 
-
     .footer-bottom {
-
-        flex-direction: column;
+        grid-column: auto;
+        gap: 20px;
     }
-
 }
 
 
 @media (max-width: 480px) {
 
-    .navbar {
-
-        width:
-            calc(100% - 24px);
+    .container {
+        width: min(100% - 24px, var(--container));
     }
 
-
-    .brand-mark {
-
-        width: 35px;
-        height: 35px;
+    .section {
+        padding: 75px 0;
     }
 
-
-    .theme-toggle {
-
-        width: 40px;
-        height: 40px;
+    .logo-text {
+        font-size: 18px;
     }
 
+    .logo-mark {
+        width: 34px;
+        height: 34px;
+    }
 
+    .header-actions {
+        gap: 6px;
+    }
+
+    .theme-toggle,
     .menu-toggle {
-
         width: 40px;
         height: 40px;
     }
 
+    .hero {
+        padding-bottom: 55px;
+    }
 
-    .hero-buttons {
+    .hero-name {
+        font-size: clamp(44px, 14vw, 62px);
+    }
 
+    .hero-role-wrapper {
+        min-height: 90px;
+        max-width: 340px;
+    }
+
+    .hero-description {
+        font-size: 13px;
+    }
+
+    .hero-actions {
+        width: 100%;
         flex-direction: column;
     }
 
-
-    .btn {
-
+    .hero-actions .btn {
         width: 100%;
     }
 
-
-    .hero-tech {
-
-        min-height: 270px;
+    .hero-links {
+        gap: 12px;
     }
 
-
-    .tech-card {
-
-        border-radius: 18px;
+    .hero-visual {
+        min-height: 285px;
     }
 
-
-    .tech-code {
-
-        font-size: 0.58rem;
-
-        line-height: 1.9;
+    .tech-orbit {
+        width: 285px;
     }
 
+    .core-card {
+        width: 135px;
+        min-height: 135px;
+    }
 
-    .about-intro {
+    .core-card strong {
+        font-size: 13px;
+    }
 
+    .core-label {
+        font-size: 8px;
+    }
+
+    .core-card small {
+        font-size: 6px;
+    }
+
+    .orbit-dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    .section-heading {
+        gap: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .section-heading.centered h2 {
+        font-size: 34px;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: 125px;
+    }
+
+    .skill-card {
+        padding: 22px;
+    }
+
+    .skill-card h3 {
+        font-size: 21px;
+    }
+
+    .building-card {
+        padding: 30px 20px;
+    }
+
+    .building-card h2 {
+        font-size: 34px;
+    }
+
+    .terminal-body {
+        padding: 18px;
+        font-size: 10px;
+    }
+
+    .project-card,
+    .project-card.featured {
+        min-height: 400px;
+        padding: 24px;
+    }
+
+    .project-number {
+        top: 20px;
+        right: 20px;
+    }
+
+    .project-visual {
+        right: -75px;
+        opacity: 0.25;
+    }
+
+    .project-card h3 {
+        font-size: 26px;
+    }
+
+    .project-card p {
+        font-size: 13px;
+    }
+
+    .approach-card {
         padding: 25px;
     }
 
-
-    .about-number {
-
-        margin-bottom: 45px;
+    .contact-wrapper {
+        padding: 30px 18px;
     }
 
-
-    .about-block {
-
-        grid-template-columns: 30px 1fr;
-
-        gap: 10px;
+    .contact-info h2 {
+        font-size: 38px;
     }
 
-
-    .message-presets {
-
-        justify-content: stretch;
+    .preset-messages {
+        gap: 6px;
     }
-
 
     .preset-btn {
-
-        width: 100%;
-
-        text-align: left;
+        flex: 1 1 calc(50% - 6px);
+        min-height: 38px;
     }
-
-
-    .hire-form {
-
-        padding: 20px;
-
-        border-radius: 21px;
-    }
-
 
     .form-group input,
-    .form-group select,
+    .form-group select {
+        height: 50px;
+    }
+
     .form-group textarea {
-
-        font-size: 16px;
+        min-height: 130px;
     }
 
-
-    .project-lab {
-
-        padding: 35px 20px;
+    .footer-links {
+        gap: 13px;
     }
 
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+@media (max-width: 360px) {
+
+    .hero-name {
+        font-size: 42px;
+    }
+
+    .hero-role-wrapper {
+        font-size: 18px;
+    }
+
+    .hero-visual {
+        min-height: 250px;
+    }
+
+    .tech-orbit {
+        width: 245px;
+    }
+
+    .core-card {
+        width: 120px;
+        min-height: 120px;
+    }
+
+    .core-card strong {
+        font-size: 12px;
+    }
+
+    .section-heading h2,
+    .section-heading.centered h2 {
+        font-size: 30px;
+    }
+
+    .contact-info h2 {
+        font-size: 34px;
+    }
+}
+
+
+@media (hover: none) {
+
+    .btn:hover,
+    .skill-card:hover,
+    .project-card:hover,
+    .approach-card:hover,
+    .stat-card:hover {
+        transform: none;
+    }
+
+    .btn:active {
+        transform: scale(0.98);
+    }
+
+    .preset-btn:active {
+        transform: scale(0.97);
+    }
 }
