@@ -1,246 +1,205 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* ================================
-       CONTACT FORM
-    ================================= */
-
-    const contactForm = document.getElementById("contactForm");
-    const messageField = document.getElementById("message");
-    const submitButton = document.getElementById("submitButton");
-    const submitText = submitButton?.querySelector(".submit-text");
-    const submitLoading = submitButton?.querySelector(".submit-loading");
-    const formStatus = document.getElementById("formStatus");
-
-    /* ---------- Preset Messages ---------- */
-
+    const root = document.documentElement;
+    const themeToggle = document.querySelector(".theme-toggle");
+    const typingTarget = document.querySelector("#typingTarget");
+    const hireForm = document.querySelector("#hireForm");
     const presetButtons = document.querySelectorAll(".preset-btn");
+    const messageField = document.querySelector("#message");
+    const formStatus = document.querySelector("#formStatus");
+    const rippleHosts = document.querySelectorAll(
+        "button, .btn, .social-link, .skill-card, .project-card, .approach-card"
+    );
+
+    const roles = [
+        "Electronics Engineering Student",
+        "Web Developer",
+        "Python Programmer",
+        "AI Learner",
+        "Embedded Systems Learner"
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const savedTheme = localStorage.getItem("portfolio-theme");
+
+    if (savedTheme === "light" || savedTheme === "dark") {
+        root.setAttribute("data-theme", savedTheme);
+    } else {
+        root.setAttribute(
+            "data-theme",
+            window.matchMedia("(prefers-color-scheme: light)").matches
+                ? "light"
+                : "dark"
+        );
+    }
+
+    const updateThemeIcon = () => {
+        if (!themeToggle) return;
+
+        const isLight = root.getAttribute("data-theme") === "light";
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isLight ? "Switch to dark mode" : "Switch to light mode"
+        );
+
+        const icon = themeToggle.querySelector("i");
+
+        if (icon) {
+            icon.className = isLight
+                ? "fa-solid fa-moon"
+                : "fa-solid fa-sun";
+        }
+    };
+
+    updateThemeIcon();
+
+    themeToggle?.addEventListener("click", () => {
+        const currentTheme = root.getAttribute("data-theme");
+        const nextTheme = currentTheme === "light" ? "dark" : "light";
+
+        root.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("portfolio-theme", nextTheme);
+
+        updateThemeIcon();
+    });
+
+    const typeRole = () => {
+        if (!typingTarget) return;
+
+        const currentRole = roles[roleIndex];
+
+        if (!deleting) {
+            typingTarget.textContent = currentRole.slice(0, charIndex + 1);
+            charIndex++;
+
+            if (charIndex === currentRole.length) {
+                deleting = true;
+                setTimeout(typeRole, 1700);
+                return;
+            }
+
+            setTimeout(typeRole, 65);
+        } else {
+            typingTarget.textContent = currentRole.slice(0, charIndex - 1);
+            charIndex--;
+
+            if (charIndex === 0) {
+                deleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeRole, 350);
+                return;
+            }
+
+            setTimeout(typeRole, 35);
+        }
+    };
+
+    typeRole();
 
     presetButtons.forEach((button) => {
         button.addEventListener("click", () => {
+            const message = button.dataset.message || button.textContent.trim();
 
-            const message = button.dataset.message;
-
-            if (messageField && message) {
+            if (messageField) {
                 messageField.value = message;
                 messageField.focus();
             }
 
-            // Highlight selected preset
-            presetButtons.forEach((btn) => {
-                btn.classList.remove("active");
+            presetButtons.forEach((item) => {
+                item.classList.remove("active");
             });
 
             button.classList.add("active");
         });
     });
 
-
-    /* ---------- Form Submit ---------- */
-
-    if (contactForm) {
-
-        contactForm.addEventListener("submit", async (event) => {
-
-            event.preventDefault();
-
-            // Clear previous status
-            if (formStatus) {
-                formStatus.textContent = "";
-                formStatus.className = "form-status";
-            }
-
-            // Check consent
-            const consent = contactForm.querySelector(
-                'input[name="consent"]'
-            );
-
-            if (consent && !consent.checked) {
-
-                showFormStatus(
-                    "Please agree to be contacted before sending.",
-                    "error"
-                );
-
-                return;
-            }
-
-            // Loading state
-            if (submitButton) {
-                submitButton.disabled = true;
-            }
-
-            if (submitText) {
-                submitText.style.display = "none";
-            }
-
-            if (submitLoading) {
-                submitLoading.style.display = "inline";
-            }
-
-            try {
-
-                const formData = new FormData(contactForm);
-
-                const response = await fetch(
-                    "https://api.web3forms.com/submit",
-                    {
-                        method: "POST",
-                        body: formData
-                    }
-                );
-
-                const result = await response.json();
-
-                if (result.success) {
-
-                    showFormStatus(
-                        "✓ Message sent successfully! I'll get back to you soon.",
-                        "success"
-                    );
-
-                    // Reset form
-                    contactForm.reset();
-
-                    // Remove preset selection
-                    presetButtons.forEach((btn) => {
-                        btn.classList.remove("active");
-                    });
-
-                } else {
-
-                    showFormStatus(
-                        result.message ||
-                        "Something went wrong. Please try again.",
-                        "error"
-                    );
-                }
-
-            } catch (error) {
-
-                console.error("Form submission error:", error);
-
-                showFormStatus(
-                    "Unable to send your message. Please check your internet connection and try again.",
-                    "error"
-                );
-
-            } finally {
-
-                // Restore button
-                if (submitButton) {
-                    submitButton.disabled = false;
-                }
-
-                if (submitText) {
-                    submitText.style.display = "inline";
-                }
-
-                if (submitLoading) {
-                    submitLoading.style.display = "none";
-                }
-            }
-        });
-    }
-
-
-    /* ---------- Status Message ---------- */
-
-    function showFormStatus(message, type) {
+    hireForm?.addEventListener("submit", async (event) => {
+        event.preventDefault();
 
         if (!formStatus) return;
 
-        formStatus.textContent = message;
-        formStatus.className = `form-status ${type}`;
+        const submitButton = hireForm.querySelector(
+            'button[type="submit"]'
+        );
 
-        // Automatically remove after 7 seconds
-        setTimeout(() => {
+        const formData = new FormData(hireForm);
 
-            formStatus.textContent = "";
-            formStatus.className = "form-status";
+        if (formData.get("botcheck")) {
+            return;
+        }
 
-        }, 7000);
-    }
+        formStatus.textContent = "Sending...";
+        formStatus.className = "form-status loading";
 
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.classList.add("loading");
+        }
 
-    /* ================================
-       THEME TOGGLE
-    ================================= */
+        try {
+            const response = await fetch(hireForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    Accept: "application/json"
+                }
+            });
 
-    const themeToggle = document.getElementById("themeToggle");
+            const result = await response.json();
 
-    if (themeToggle) {
+            if (response.ok && result.success) {
+                formStatus.textContent =
+                    "Message sent successfully. I'll get back to you soon.";
+                formStatus.className = "form-status success";
 
-        const savedTheme = localStorage.getItem("portfolio-theme");
+                hireForm.reset();
 
-        if (savedTheme) {
-            document.documentElement.setAttribute(
-                "data-theme",
-                savedTheme
-            );
-        } else {
-
-            const prefersLight = window.matchMedia(
-                "(prefers-color-scheme: light)"
-            ).matches;
-
-            if (prefersLight) {
-                document.documentElement.setAttribute(
-                    "data-theme",
-                    "light"
+                presetButtons.forEach((button) => {
+                    button.classList.remove("active");
+                });
+            } else {
+                throw new Error(
+                    result.message || "Unable to send your message."
                 );
             }
+        } catch (error) {
+            formStatus.textContent =
+                error.message ||
+                "Something went wrong. Please try again.";
+            formStatus.className = "form-status error";
+        } finally {
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.classList.remove("loading");
+            }
         }
+    });
 
-        updateThemeIcon();
+    rippleHosts.forEach((element) => {
+        element.classList.add("ripple-host");
 
-        themeToggle.addEventListener("click", () => {
+        element.addEventListener("pointerdown", (event) => {
+            const rect = element.getBoundingClientRect();
+            const ripple = document.createElement("span");
 
-            const currentTheme =
-                document.documentElement.getAttribute("data-theme");
+            ripple.className = "ripple";
+            ripple.style.left = `${event.clientX - rect.left}px`;
+            ripple.style.top = `${event.clientY - rect.top}px`;
 
-            const newTheme =
-                currentTheme === "light"
-                    ? "dark"
-                    : "light";
+            element.appendChild(ripple);
 
-            document.documentElement.setAttribute(
-                "data-theme",
-                newTheme
-            );
-
-            localStorage.setItem(
-                "portfolio-theme",
-                newTheme
-            );
-
-            updateThemeIcon();
+            ripple.addEventListener("animationend", () => {
+                ripple.remove();
+            });
         });
+    });
+
+    const currentYear = document.querySelector("#currentYear");
+
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
     }
-
-
-    function updateThemeIcon() {
-
-        if (!themeToggle) return;
-
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-
-        if (currentTheme === "light") {
-
-            themeToggle.textContent = "☀️";
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to dark mode"
-            );
-
-        } else {
-
-            themeToggle.textContent = "🌙";
-            themeToggle.setAttribute(
-                "aria-label",
-                "Switch to light mode"
-            );
-        }
-    }
-
 });
