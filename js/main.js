@@ -1,3 +1,9 @@
+const pageLoader = document.querySelector(".page-loader");
+
+if (pageLoader) {
+    pageLoader.classList.add("hidden");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.documentElement;
     const themeToggle = document.querySelector(".theme-toggle");
