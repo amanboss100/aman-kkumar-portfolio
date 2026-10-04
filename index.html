@@ -1096,110 +1096,193 @@
                        class="form-error"></small>
 
             </div>
+<form
+    action="https://api.web3forms.com/submit"
+    method="POST"
+    id="contactForm"
+    class="contact-form"
+>
 
+    <!-- Web3Forms Access Key -->
+    <input
+        type="hidden"
+        name="access_key"
+        value="a7239474-1998-424b-b510-bb1e5192bba4"
+    >
 
-            <div class="form-group">
+    <!-- Email Subject -->
+    <input
+        type="hidden"
+        name="subject"
+        value="New Portfolio Inquiry — Aman Kumar"
+    >
 
-                <label for="projectType">
-                    Project Type
-                </label>
+    <!-- Anti-spam honeypot -->
+    <input
+        type="checkbox"
+        name="botcheck"
+        class="hidden"
+        style="display:none"
+        tabindex="-1"
+        autocomplete="off"
+    >
 
-                <select id="projectType"
-                        name="projectType">
+    <!-- Name -->
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            autocomplete="name"
+            required
+        >
+    </div>
 
-                    <option value="">
-                        Select project type
-                    </option>
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="your@email.com"
+            autocomplete="email"
+            required
+        >
+    </div>
 
-                    <option value="Embedded Systems">
-                        Embedded Systems
-                    </option>
+    <!-- Project Type -->
+    <div class="form-group">
+        <label for="project_type">What do you need?</label>
 
-                    <option value="Electronics">
-                        Electronics Project
-                    </option>
+        <select
+            id="project_type"
+            name="project_type"
+            required
+        >
+            <option value="" disabled selected>
+                Select an option
+            </option>
 
-                    <option value="Arduino / ESP32">
-                        Arduino / ESP32
-                    </option>
+            <option value="Hire Me">
+                💼 Hire Me
+            </option>
 
-                    <option value="Python / AI">
-                        Python / AI
-                    </option>
+            <option value="Electronics Project">
+                ⚡ Electronics Project
+            </option>
 
-                    <option value="Website">
-                        Website / Portfolio
-                    </option>
+            <option value="Embedded Systems">
+                🔧 Embedded Systems
+            </option>
 
-                    <option value="Collaboration">
-                        Collaboration
-                    </option>
+            <option value="Web Development">
+                🌐 Web Development
+            </option>
 
-                    <option value="Other">
-                        Other
-                    </option>
+            <option value="Collaboration">
+                🤝 Collaboration
+            </option>
 
-                </select>
+            <option value="General Inquiry">
+                💬 General Inquiry
+            </option>
+        </select>
+    </div>
 
-            </div>
+    <!-- Preset Messages -->
+    <div class="form-group">
+        <label>Quick Message</label>
 
-
-            <div class="form-group">
-
-                <label for="message">
-                    Message <span>*</span>
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="6"
-                    placeholder="Tell me about your project, timeline, or inquiry..."
-                    required></textarea>
-
-                <small id="messageError"
-                       class="form-error"></small>
-
-            </div>
-
-
-            <label class="form-checkbox">
-
-                <input
-                    type="checkbox"
-                    id="consent"
-                    required>
-
-                <span>
-                    I agree to be contacted about my inquiry.
-                </span>
-
-            </label>
-
+        <div class="message-presets">
 
             <button
-                type="submit"
-                class="form-submit"
-                id="formSubmit">
-
-                <span>
-                    Send Message
-                </span>
-
-                <span>
-                    ↗
-                </span>
-
+                type="button"
+                class="preset-btn"
+                data-message="Hi Aman, I would like to hire you for a project."
+            >
+                💼 Hire Me
             </button>
 
+            <button
+                type="button"
+                class="preset-btn"
+                data-message="Hi Aman, I want to discuss an electronics or embedded systems project with you."
+            >
+                ⚡ Electronics
+            </button>
 
-            <div id="formStatus"
-                 class="form-status"
-                 role="status"
-                 aria-live="polite">
-            </div>
+            <button
+                type="button"
+                class="preset-btn"
+                data-message="Hi Aman, I would like to collaborate with you on a project."
+            >
+                🤝 Collaborate
+            </button>
 
-        </form>
+            <button
+                type="button"
+                class="preset-btn"
+                data-message="Hi Aman, I have a question about your work and would like to discuss it with you."
+            >
+                💬 Ask Something
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Message -->
+    <div class="form-group">
+        <label for="message">Message</label>
+
+        <textarea
+            id="message"
+            name="message"
+            rows="6"
+            maxlength="2000"
+            placeholder="Tell me about your project or idea..."
+            required
+        ></textarea>
+    </div>
+
+    <!-- Consent -->
+    <div class="form-consent">
+        <label class="checkbox-label">
+            <input
+                type="checkbox"
+                name="consent"
+                value="I agree to be contacted regarding this inquiry."
+                required
+            >
+
+            <span>
+                I agree to be contacted regarding this inquiry.
+            </span>
+        </label>
+    </div>
+
+    <!-- Submit -->
+    <button
+        type="submit"
+        class="form-submit"
+        id="submitButton"
+    >
+        <span class="submit-text">Send Message</span>
+        <span class="submit-loading" style="display:none;">
+            Sending...
+        </span>
+    </button>
+
+    <!-- Status -->
+    <div
+        id="formStatus"
+        class="form-status"
+        aria-live="polite"
+    ></div>
+
+</form>
 
     </div>
 
