@@ -637,6 +637,32 @@ footer a, .site-footer a { color: var(--cyan); }
   .stat, .stat-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
+/* Fix: black screen / stuck page loader */
+.page-loader {
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-ring {
+    width: 52px;
+    height: 52px;
+    border: 3px solid rgba(0, 229, 255, 0.18);
+    border-top-color: #00e5ff;
+    border-radius: 50%;
+    animation: loaderSpin 0.85s linear infinite;
+}
+
+@keyframes loaderSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+   
   *, *::before, *::after {
     scroll-behavior: auto !important;
     animation-duration: .01ms !important;
