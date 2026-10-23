@@ -3,963 +3,521 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Aman Kumar | Electronics Engineering Student & Embedded Systems Portfolio</title>
-
-    <meta name="description" content="Aman Kumar is an Electronics Engineering student learning Embedded Systems, Electronics, ESP32, Arduino, Python, C/C++, Web Development and AI.">
-    <meta name="author" content="Aman Kumar">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#05070a">
-    <link rel="canonical" href="https://amankkumar.online/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Aman Kumar | Electronics Engineering Student & Embedded Systems Portfolio">
-    <meta property="og:description" content="Electronics Engineering student building skills in Embedded Systems, Electronics, Python, Web Development and AI.">
-    <meta property="og:url" content="https://amankkumar.online/">
-    <meta property="og:site_name" content="Aman Kumar">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Aman Kumar | Electronics Engineering Student">
-    <meta name="twitter:description" content="Electronics Engineering student learning Embedded Systems, Electronics, Python, Web Development and AI.">
-
-    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
-
+    <title>Aman Kumar | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================
+           AMAN KUMAR PORTFOLIO - 3D NEUMORPHISM
+        ========================================= */
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/animations.css">
+        :root {
+            /* LIGHT MODE (Default) */
+            --bg: #e0e5ec;
+            --surface: #e0e5ec;
+            --text: #2d3436;
+            --text-soft: #636e72;
+            --cyan: #00b894;
+            
+            /* 3D Shadows (Neumorphism) */
+            --shadow-out: 9px 9px 16px rgba(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+            --shadow-in: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
+            
+            --radius: 20px;
+            --font-main: 'Inter', sans-serif;
+            --font-display: 'Space Grotesk', sans-serif;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Aman Kumar",
-        "url": "https://amankkumar.online/",
-        "jobTitle": "Electronics Engineering Student",
-        "description": "Electronics Engineering student learning Embedded Systems, Electronics, Python, Web Development and AI.",
-        "knowsAbout": [
-            "Electronics",
-            "Embedded Systems",
-            "ESP32",
-            "Arduino",
-            "Python",
-            "C",
-            "C++",
-            "Web Development",
-            "Artificial Intelligence",
-            "PCB"
-        ]
-    }
-    </script>
+        [data-theme="dark"] {
+            /* DARK MODE */
+            --bg: #0f111a;
+            --surface: #151823;
+            --text: #ecfaff;
+            --text-soft: #a0aec0;
+            --cyan: #00e5ff;
+
+            /* 3D Shadows (Dark) */
+            --shadow-out: 8px 8px 16px rgba(0,0,0,0.4), -8px -8px 16px rgba(35,40,55,0.3);
+            --shadow-in: inset 6px 6px 10px rgba(0,0,0,0.5), inset -6px -6px 10px rgba(35,40,55,0.4);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            transition: background 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 700; margin-bottom: 15px; }
+        p { color: var(--text-soft); margin-bottom: 15px; }
+
+        .container { width: min(1100px, 90%); margin: auto; padding: 120px 0 60px; }
+
+        /* ---------------- Navbar (Floating 3D Pill) ---------------- */
+        .navbar {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: min(900px, 90%);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: var(--surface);
+            box-shadow: var(--shadow-out);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; }
+        .logo span { color: var(--cyan); }
+        
+        .nav-links { display: flex; gap: 15px; align-items: center; }
+        .nav-links a {
+            text-decoration: none; color: var(--text-soft); font-weight: 600;
+            padding: 10px 20px; border-radius: 30px; transition: var(--transition);
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--cyan); box-shadow: var(--shadow-in);
+        }
+
+        #themeToggle {
+            background: var(--surface); border: none; outline: none; cursor: pointer;
+            width: 45px; height: 45px; border-radius: 50%;
+            box-shadow: var(--shadow-out);
+            color: var(--text); font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        #themeToggle:active { box-shadow: var(--shadow-in); }
+
+        .mobile-menu-btn { display: none; background: none; border:none; font-size: 1.5rem; color: var(--text); cursor: pointer; }
+
+        /* ---------------- 3D Buttons ---------------- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 14px 32px; border-radius: 12px;
+            background: var(--surface); color: var(--cyan);
+            text-decoration: none; font-weight: 700; border: none; cursor: pointer;
+            box-shadow: var(--shadow-out); transition: var(--transition);
+            font-family: var(--font-main); font-size: 1rem;
+        }
+        .btn:hover { color: var(--text); transform: translateY(-3px); }
+        .btn:active { box-shadow: var(--shadow-in); transform: translateY(0); color: var(--cyan); }
+        .btn-primary { color: var(--surface); background: var(--cyan); box-shadow: 6px 6px 12px rgba(0,0,0,0.2), -6px -6px 12px rgba(255,255,255,0.1); }
+        .btn-primary:hover { background: var(--text); color: var(--bg); }
+
+        /* ---------------- Cards & Layouts ---------------- */
+        .grid { display: grid; gap: 30px; }
+        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
+
+        .card {
+            background: var(--surface); padding: 35px;
+            border-radius: var(--radius); box-shadow: var(--shadow-out);
+            transition: var(--transition); display: flex; flex-direction: column;
+        }
+        .card:hover { transform: translateY(-5px); }
+        .card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 20px; }
+        .tag { padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; box-shadow: var(--shadow-in); color: var(--cyan); }
+
+        /* ---------------- Forms & Checkbox ---------------- */
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-soft); }
+        .form-control {
+            width: 100%; padding: 15px; border-radius: 12px;
+            background: var(--surface); border: none; color: var(--text);
+            box-shadow: var(--shadow-in); font-family: var(--font-main);
+            outline: none; transition: var(--transition);
+        }
+        .form-control:focus { box-shadow: var(--shadow-out); }
+        textarea.form-control { resize: vertical; min-height: 150px; }
+
+        .custom-checkbox-wrapper { display: flex; align-items: center; gap: 15px; cursor: pointer; margin: 20px 0; font-weight: 600; color: var(--text-soft); user-select: none; }
+        .custom-checkbox-wrapper input { display: none; }
+        .checkmark {
+            width: 35px; height: 35px; background: var(--surface); border-radius: 10px;
+            box-shadow: var(--shadow-out); display: flex; align-items: center; justify-content: center;
+            transition: var(--transition); flex-shrink: 0;
+        }
+        .custom-checkbox-wrapper input:checked + .checkmark { box-shadow: var(--shadow-in); color: var(--cyan); }
+        .custom-checkbox-wrapper input:checked + .checkmark::after { content: "✔"; font-size: 1.2rem; font-weight: bold; }
+
+        #formStatus { margin-top: 20px; padding: 15px; border-radius: 12px; text-align: center; font-weight: 600; display: none; }
+        #formStatus.success { display: block; box-shadow: var(--shadow-in); color: var(--cyan); }
+        #formStatus.error { display: block; box-shadow: var(--shadow-in); color: #ff4757; }
+
+        /* ---------------- Page Routing Logic (SPA) ---------------- */
+        .page { display: none; opacity: 0; animation: pageFadeIn 0.5s forwards; }
+        .page.active { display: block; }
+        @keyframes pageFadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ---------------- Hero Section ---------------- */
+        .hero { display: flex; align-items: center; min-height: 80vh; text-align: center; }
+        .hero-content { max-width: 800px; margin: auto; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 20px; }
+        .hero .typing-wrapper { font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--cyan); font-weight: 600; min-height: 40px; margin-bottom: 30px; }
+        .typing-cursor { display: inline-block; width: 3px; height: 1em; background: var(--cyan); animation: blink 0.8s infinite; vertical-align: middle; margin-left: 5px; }
+        @keyframes blink { 50% { opacity: 0; } }
+        .hero-actions { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+
+        /* ---------------- Footer ---------------- */
+        footer { text-align: center; padding: 40px 0; color: var(--text-soft); font-weight: 600; margin-top: 40px; box-shadow: var(--shadow-out); border-radius: 50px 50px 0 0; background: var(--surface); }
+
+        /* ---------------- Mobile ---------------- */
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .nav-links {
+                position: absolute; top: 80px; left: 0; width: 100%;
+                background: var(--surface); flex-direction: column; padding: 20px;
+                border-radius: var(--radius); box-shadow: var(--shadow-out);
+                display: none;
+            }
+            .nav-links.show { display: flex; }
+            .nav-links a { width: 100%; text-align: center; }
+            .navbar { width: calc(100% - 40px); }
+        }
+    </style>
 </head>
+<body data-theme="dark">
 
-<body>
-
-    <div class="page-loader" aria-hidden="true">
-        <div class="loader-ring"></div>
-    </div>
-
-    <header class="site-header" id="header">
-        <div class="container header-inner">
-
-            <a href="#home" class="logo" aria-label="Aman Kumar Home">
-                <span class="logo-mark">AK</span>
-                <span class="logo-text">Aman<span>.</span></span>
-            </a>
-
-            <nav class="main-nav" id="mainNav" aria-label="Main navigation">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#building" class="nav-link">Building</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#approach" class="nav-link">Approach</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </nav>
-
-            <div class="header-actions">
-                <button
-                    type="button"
-                    class="theme-toggle"
-                    id="themeToggle"
-                    aria-label="Switch theme"
-                    title="Switch theme"
-                >
-                    <span class="theme-icon" aria-hidden="true">☾</span>
-                </button>
-
-                <button
-                    type="button"
-                    class="menu-toggle"
-                    id="menuToggle"
-                    aria-label="Open menu"
-                    aria-expanded="false"
-                    aria-controls="mainNav"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-
+    <!-- SHARED NAVBAR -->
+    <nav class="navbar">
+        <a href="#home" class="logo">Aman<span>.</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-item">Home</a>
+            <a href="#about" class="nav-item">About</a>
+            <a href="#projects" class="nav-item">Projects</a>
+            <a href="#contact" class="nav-item">Contact</a>
         </div>
-    </header>
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <button id="themeToggle" aria-label="Toggle Theme">☀️</button>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </nav>
 
-    <main>
+    <!-- MAIN APP CONTAINER (SPA ROUTER) -->
+    <main id="app">
 
-        <section class="hero section" id="home">
-            <div class="container hero-grid">
-
+        <!-- ================= HOME PAGE ================= -->
+        <section id="home" class="page active">
+            <div class="container hero">
                 <div class="hero-content">
-
-                    <p class="hero-intro">Hi, I'm</p>
-
-                    <h1 class="hero-name">
-                        Aman Kumar
-                    </h1>
-
-                    <div class="hero-role-wrapper">
-                        <span class="hero-role-prefix">I'm a</span>
-                        <span
-                            class="hero-role"
-                            id="typingTarget"
-                            aria-live="polite"
-                        ></span>
-                        <span class="typing-cursor" aria-hidden="true"></span>
+                    <p style="color: var(--cyan); font-weight: 700; letter-spacing: 2px;">HELLO WORLD, I'M</p>
+                    <h1>Aman Kumar</h1>
+                    <div class="typing-wrapper">
+                        I am an <span id="typewriterText"></span><span class="typing-cursor"></span>
                     </div>
-
-                    <p class="hero-description">
-                        I’m building my foundation at the intersection of
-                        <strong>Electronics</strong>,
-                        <strong>Embedded Systems</strong>,
-                        <strong>Software</strong> and
-                        <strong>AI</strong>.
-                    </p>
-
+                    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Building my foundation at the intersection of Hardware, Software, and Intelligent Systems. Learning to create the future.</p>
+                    
                     <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary">
-                            <span>Explore My Work</span>
-                            <span class="btn-arrow">↗</span>
-                        </a>
-
-                        <a href="#contact" class="btn btn-secondary">
-                            <span>Hire Me</span>
-                        </a>
+                        <a href="#projects" class="btn btn-primary">Explore Work ↗</a>
+                        <a href="#" class="btn" onclick="downloadCV(event)">Download CV ⬇</a>
                     </div>
-
-                    <div class="hero-links">
-                        <a
-                            href="https://github.com/amanboss100"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="social-link"
-                            aria-label="GitHub"
-                        >
-                            GitHub
-                        </a>
-
-                        <a
-                            href="https://www.linkedin.com/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="social-link"
-                            aria-label="LinkedIn"
-                        >
-                            LinkedIn
-                        </a>
-
-                        <a
-                            href="https://t.me/aman_k_kumar"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="social-link"
-                            aria-label="Telegram"
-                        >
-                            Telegram
-                        </a>
-                    </div>
-
                 </div>
-
-                <div class="hero-visual" aria-hidden="true">
-
-                    <div class="tech-orbit">
-                        <div class="orbit orbit-one"></div>
-                        <div class="orbit orbit-two"></div>
-                        <div class="orbit orbit-three"></div>
-
-                        <div class="core-card">
-                            <span class="core-status"></span>
-                            <span class="core-label">BUILDING</span>
-                            <strong>Electronics</strong>
-                            <strong>& Embedded</strong>
-                            <span class="core-line"></span>
-                            <small>LEARN • BUILD • IMPROVE</small>
-                        </div>
-
-                        <span class="orbit-dot dot-one"></span>
-                        <span class="orbit-dot dot-two"></span>
-                        <span class="orbit-dot dot-three"></span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="scroll-indicator" aria-hidden="true">
-                <span>Scroll to explore</span>
-                <span class="scroll-line"></span>
             </div>
         </section>
 
-
-        <section class="about section" id="about">
+        <!-- ================= ABOUT PAGE ================= -->
+        <section id="about" class="page">
             <div class="container">
-
-                <div class="section-heading reveal">
-                    <span class="section-number">01</span>
-                    <div>
-                        <span class="section-label">ABOUT ME</span>
-                        <h2>Building my future,<br><span>one skill at a time.</span></h2>
-                    </div>
-                </div>
-
-                <div class="about-grid">
-
-                    <div class="about-text reveal">
-                        <p class="lead">
-                            I’m an <strong>Electronics Engineering student</strong>
-                            with a growing interest in technology, programming
-                            and intelligent systems.
-                        </p>
-
-                        <p>
-                            My current focus is developing strong fundamentals
-                            in electronics while exploring Embedded Systems,
-                            microcontrollers, Python, Web Development and AI.
-                        </p>
-
-                        <p>
-                            I believe the best way to learn technology is to
-                            <strong>build real things</strong>, understand how
-                            they work and continuously improve them.
-                        </p>
-
-                        <a href="#contact" class="text-link">
-                            Let's build something →
-                        </a>
-                    </div>
-
-                    <div class="about-stats reveal">
-
-                        <div class="stat-card">
-                            <span class="stat-icon">01</span>
-                            <strong>Electronics</strong>
-                            <span>Core Foundation</span>
-                        </div>
-
-                        <div class="stat-card">
-                            <span class="stat-icon">02</span>
-                            <strong>Embedded</strong>
-                            <span>Systems & Hardware</span>
-                        </div>
-
-                        <div class="stat-card">
-                            <span class="stat-icon">03</span>
-                            <strong>Software</strong>
-                            <span>Code & Web</span>
-                        </div>
-
-                        <div class="stat-card">
-                            <span class="stat-icon">04</span>
-                            <strong>AI</strong>
-                            <span>Future Technology</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <section class="skills section" id="skills">
-            <div class="container">
-
-                <div class="section-heading centered reveal">
-                    <span class="section-number">02</span>
-                    <span class="section-label">SKILLS</span>
-                    <h2>What I'm <span>learning & building.</span></h2>
-                    <p>
-                        A growing technical foundation across hardware,
-                        software and intelligent systems.
-                    </p>
-                </div>
-
-                <div class="skills-grid">
-
-                    <article class="skill-card skill-electronics reveal">
-                        <div class="skill-top">
-                            <span class="skill-index">01</span>
-                            <span class="skill-symbol">◈</span>
-                        </div>
-
+                <h2>About Me</h2>
+                <p>I am an Electronics Engineering student deeply passionate about bridging the gap between physical hardware and intelligent software. Here is what I am currently building and learning:</p>
+                
+                <div class="grid grid-3" style="margin-top: 40px;">
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
                         <h3>Electronics</h3>
-
-                        <p>
-                            Understanding electronic components, circuits,
-                            measurements and fundamental electronics concepts.
-                        </p>
-
-                        <div class="skill-tags">
-                            <span>Components</span>
-                            <span>Circuits</span>
-                            <span>CRO</span>
-                            <span>Digital Logic</span>
+                        <p>Core foundation in electronic components, circuit design, measurements, and digital logic.</p>
+                        <div class="tags">
+                            <span class="tag">Circuits</span> <span class="tag">PCB</span> <span class="tag">Digital Logic</span>
                         </div>
-                    </article>
-
-                    <article class="skill-card skill-embedded reveal">
-                        <div class="skill-top">
-                            <span class="skill-index">02</span>
-                            <span class="skill-symbol">⌁</span>
-                        </div>
-
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🔌</div>
                         <h3>Embedded Systems</h3>
-
-                        <p>
-                            Learning how hardware and software work together
-                            through microcontrollers and embedded programming.
-                        </p>
-
-                        <div class="skill-tags">
-                            <span>ESP32</span>
-                            <span>Arduino</span>
-                            <span>Microcontrollers</span>
-                            <span>IoT</span>
+                        <p>Programming microcontrollers to interact with the physical world using sensors and actuators.</p>
+                        <div class="tags">
+                            <span class="tag">ESP32</span> <span class="tag">Arduino</span> <span class="tag">IoT</span>
                         </div>
-                    </article>
-
-                    <article class="skill-card skill-python reveal">
-                        <div class="skill-top">
-                            <span class="skill-index">03</span>
-                            <span class="skill-symbol">{ }</span>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💻</div>
+                        <h3>Software & AI</h3>
+                        <p>Writing clean code and developing intelligent algorithms to process data and automate tasks.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span> <span class="tag">C/C++</span> <span class="tag">Machine Learning</span>
                         </div>
-
-                        <h3>Programming</h3>
-
-                        <p>
-                            Developing programming fundamentals and practical
-                            problem-solving skills through real projects.
-                        </p>
-
-                        <div class="skill-tags">
-                            <span>Python</span>
-                            <span>C</span>
-                            <span>C++</span>
-                            <span>Git</span>
-                        </div>
-                    </article>
-
-                    <article class="skill-card skill-web reveal">
-                        <div class="skill-top">
-                            <span class="skill-index">04</span>
-                            <span class="skill-symbol">&lt;/&gt;</span>
-                        </div>
-
-                        <h3>Web Development</h3>
-
-                        <p>
-                            Creating responsive interfaces and practical
-                            web experiences using modern frontend technologies.
-                        </p>
-
-                        <div class="skill-tags">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Vercel</span>
-                        </div>
-                    </article>
-
-                    <article class="skill-card skill-ai reveal">
-                        <div class="skill-top">
-                            <span class="skill-index">05</span>
-                            <span class="skill-symbol">✦</span>
-                        </div>
-
-                        <h3>AI & Automation</h3>
-
-                        <p>
-                            Exploring AI tools, APIs and automation to build
-                            useful technology-driven solutions.
-                        </p>
-
-                        <div class="skill-tags">
-                            <span>AI</span>
-                            <span>APIs</span>
-                            <span>Automation</span>
-                            <span>Python</span>
-                        </div>
-                    </article>
-
-                    <article class="skill-card skill-tools reveal">
-                        <div class="skill-top">
-                            <span class="skill-index">06</span>
-                            <span class="skill-symbol">+</span>
-                        </div>
-
-                        <h3>Tools</h3>
-
-                        <p>
-                            Using modern development tools to design, test,
-                            deploy and maintain personal projects.
-                        </p>
-
-                        <div class="skill-tags">
-                            <span>GitHub</span>
-                            <span>VS Code</span>
-                            <span>Termux</span>
-                            <span>Vercel</span>
-                        </div>
-                    </article>
-
+                    </div>
                 </div>
-
             </div>
         </section>
 
-
-        <section class="building section" id="building">
+        <!-- ================= PROJECTS PAGE ================= -->
+        <section id="projects" class="page">
             <div class="container">
-
-                <div class="building-card reveal">
-
-                    <div class="building-content">
-                        <span class="status-badge">
-                            <span class="status-dot"></span>
-                            CURRENTLY BUILDING
-                        </span>
-
-                        <h2>
-                            From learning concepts
-                            <span>to building systems.</span>
-                        </h2>
-
-                        <p>
-                            My current journey is focused on connecting
-                            electronics with programming — from understanding
-                            components and microcontrollers to creating useful
-                            software and AI-powered tools.
-                        </p>
-
-                        <div class="building-stack">
-                            <span>Electronics</span>
-                            <span>ESP32</span>
-                            <span>Arduino</span>
-                            <span>Python</span>
-                            <span>Web</span>
-                            <span>AI</span>
+                <h2>Featured Projects</h2>
+                <p>A selection of things I've built, ranging from computer vision to architectural modeling.</p>
+                
+                <div class="grid grid-2" style="margin-top: 40px;">
+                    <div class="card">
+                        <div class="card-icon">🤟</div>
+                        <h3>Sign Language Translator</h3>
+                        <p>A computer vision application utilizing Google's MediaPipe framework to detect hand gestures in real-time and translate them into text, aiding in accessibility.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span> <span class="tag">MediaPipe</span> <span class="tag">OpenCV</span>
                         </div>
+                        <a href="https://github.com/amanboss100" target="_blank" class="btn" style="margin-top: 20px;">View on GitHub ↗</a>
                     </div>
 
-                    <div class="building-visual">
-                        <div class="terminal-window">
-
-                            <div class="terminal-header">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-
-                            <div class="terminal-body">
-                                <p><span>$</span> learning --focus embedded</p>
-                                <p><span>></span> electronics: <b>active</b></p>
-                                <p><span>></span> python: <b>active</b></p>
-                                <p><span>></span> ai: <b>exploring</b></p>
-                                <p><span>></span> projects: <b>building</b></p>
-                                <p><span>$</span> <i>_</i></p>
-                            </div>
-
+                    <div class="card">
+                        <div class="card-icon">😊</div>
+                        <h3>Facial Emotion Detection</h3>
+                        <p>An intelligent web application that analyzes facial expressions through a webcam feed to predict human emotions in real-time using deep learning models.</p>
+                        <div class="tags">
+                            <span class="tag">FastAPI</span> <span class="tag">TensorFlow</span> <span class="tag">JavaScript</span>
                         </div>
+                        <a href="https://github.com/amanboss100" target="_blank" class="btn" style="margin-top: 20px;">View on GitHub ↗</a>
                     </div>
 
+                    <div class="card">
+                        <div class="card-icon">🏛️</div>
+                        <h3>3D Architectural Floor Plans</h3>
+                        <p>Detailed architectural modeling and rendering of residential 'Aangan' layouts and floor plans, showcasing spatial design and 3D visualization skills.</p>
+                        <div class="tags">
+                            <span class="tag">3D Modeling</span> <span class="tag">Architecture</span> <span class="tag">Rendering</span>
+                        </div>
+                        <a href="#contact" class="btn" style="margin-top: 20px;">Request Demo ↗</a>
+                    </div>
                 </div>
-
             </div>
         </section>
 
-
-        <section class="projects section" id="projects">
+        <!-- ================= CONTACT PAGE ================= -->
+        <section id="contact" class="page">
             <div class="container">
-
-                <div class="section-heading reveal">
-                    <span class="section-number">03</span>
-                    <div>
-                        <span class="section-label">PROJECTS</span>
-                        <h2>Things I'm <span>building.</span></h2>
-                    </div>
-                </div>
-
-                <div class="projects-grid">
-
-                    <article class="project-card featured reveal">
-
-                        <div class="project-number">01</div>
-
-                        <div class="project-content">
-                            <span class="project-status">
-                                PERSONAL PROJECT
-                            </span>
-
-                            <h3>AI Telegram Assistant</h3>
-
-                            <p>
-                                A personal AI assistant concept integrating
-                                Telegram, APIs and a web interface with a focus
-                                on practical automation.
-                            </p>
-
-                            <div class="project-tech">
-                                <span>Python</span>
-                                <span>Telegram API</span>
-                                <span>FastAPI</span>
-                                <span>AI</span>
-                            </div>
-
-                            <a
-                                href="https://github.com/amanboss100"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="project-link"
-                            >
-                                View project <span>↗</span>
-                            </a>
-                        </div>
-
-                        <div class="project-visual project-ai-visual">
-                            <div class="project-grid-pattern"></div>
-                            <div class="project-chip">
-                                <span>AI</span>
-                                <small>ASSISTANT</small>
-                            </div>
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card reveal">
-
-                        <div class="project-number">02</div>
-
-                        <div class="project-content">
-                            <span class="project-status">
-                                LIVE WEBSITE
-                            </span>
-
-                            <h3>Personal Portfolio</h3>
-
-                            <p>
-                                A responsive personal portfolio designed to
-                                present my electronics, software and technology
-                                journey.
-                            </p>
-
-                            <div class="project-tech">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>Vercel</span>
-                            </div>
-
-                            <a
-                                href="https://amankkumar.online/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="project-link"
-                            >
-                                Visit website <span>↗</span>
-                            </a>
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card reveal">
-
-                        <div class="project-number">03</div>
-
-                        <div class="project-content">
-                            <span class="project-status">
-                                EMBEDDED • LEARNING
-                            </span>
-
-                            <h3>Embedded Systems Lab</h3>
-
-                            <p>
-                                Exploring microcontrollers, sensors,
-                                electronics components and hardware-software
-                                integration through practical experiments.
-                            </p>
-
-                            <div class="project-tech">
-                                <span>ESP32</span>
-                                <span>Arduino</span>
-                                <span>Sensors</span>
-                                <span>C/C++</span>
-                            </div>
-
-                            <span class="project-link project-link-disabled">
-                                In progress <span>→</span>
-                            </span>
-                        </div>
-
-                    </article>
-
-                </div>
-
-                <div class="projects-footer reveal">
-                    <a
-                        href="https://github.com/amanboss100"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-outline"
-                    >
-                        <span>View GitHub</span>
-                        <span>↗</span>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-
-        <section class="approach section" id="approach">
-            <div class="container">
-
-                <div class="section-heading centered reveal">
-                    <span class="section-number">04</span>
-                    <span class="section-label">MY APPROACH</span>
-                    <h2>Learn. <span>Build. Improve.</span></h2>
-                    <p>
-                        The mindset I use while developing my technical skills.
-                    </p>
-                </div>
-
-                <div class="approach-grid">
-
-                    <div class="approach-card reveal">
-                        <span class="approach-number">01</span>
-                        <h3>Learn</h3>
-                        <p>
-                            Understand the fundamentals before jumping into
-                            complex tools and technologies.
-                        </p>
-                    </div>
-
-                    <div class="approach-card reveal">
-                        <span class="approach-number">02</span>
-                        <h3>Build</h3>
-                        <p>
-                            Turn concepts into practical projects and
-                            experiments that solve real problems.
-                        </p>
-                    </div>
-
-                    <div class="approach-card reveal">
-                        <span class="approach-number">03</span>
-                        <h3>Improve</h3>
-                        <p>
-                            Test, debug, learn from mistakes and continuously
-                            make every project better.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-
-        <section class="contact section" id="contact">
-            <div class="container">
-
-                <div class="contact-wrapper reveal">
-
-                    <div class="contact-info">
-
-                        <span class="section-label">CONTACT</span>
-
-                        <h2>
-                            Have an idea?
-                            <span>Let's build it.</span>
-                        </h2>
-
-                        <p>
-                            Whether it's a project, collaboration, internship
-                            opportunity or simply a conversation about
-                            technology, send me a message.
-                        </p>
-
-                        <div class="contact-highlights">
-                            <div class="contact-highlight">
-                                <span>01</span>
-                                <strong>Projects</strong>
-                            </div>
-
-                            <div class="contact-highlight">
-                                <span>02</span>
-                                <strong>Collaboration</strong>
-                            </div>
-
-                            <div class="contact-highlight">
-                                <span>03</span>
-                                <strong>Internship</strong>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="contact-form-wrapper">
-
-                        <form
-                            action="https://api.web3forms.com/submit"
-                            method="POST"
-                            id="contactForm"
-                            class="hire-form"
-                        >
-
-                            <input
-                                type="hidden"
-                                name="access_key"
-                                value="a7239474-1998-424b-b510-bb1e5192bba4"
-                            >
-
-                            <input
-                                type="hidden"
-                                name="subject"
-                                value="New Portfolio Inquiry — Aman Kumar"
-                            >
-
-                            <input
-                                type="checkbox"
-                                name="botcheck"
-                                class="hidden-field"
-                                tabindex="-1"
-                                autocomplete="off"
-                            >
-
-                            <div class="form-row">
-
-                                <div class="form-group">
-                                    <label for="name">
-                                        Name <span>*</span>
-                                    </label>
-
-                                    <input
-                                        type="text"
-                                        id="name"
-                                        name="name"
-                                        placeholder="Your name"
-                                        autocomplete="name"
-                                        required
-                                    >
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email">
-                                        Email <span>*</span>
-                                    </label>
-
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        placeholder="you@example.com"
-                                        autocomplete="email"
-                                        required
-                                    >
-                                </div>
-
-                            </div>
-
-
+                <h2>Let's Connect</h2>
+                <p>Have a project idea, internship opportunity, or just want to chat about tech? Drop a message!</p>
+                
+                <div class="card" style="max-width: 700px; margin: 40px auto 0;">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Replace with your actual Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="a7239474-1998-424b-b510-bb1e5192bba4">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="grid grid-2" style="gap: 20px;">
                             <div class="form-group">
-                                <label for="projectType">
-                                    Reason for Contact <span>*</span>
-                                </label>
-
-                                <select
-                                    id="projectType"
-                                    name="project_type"
-                                    required
-                                >
-                                    <option value="" selected disabled>
-                                        Select an option
-                                    </option>
-                                    <option value="Project">
-                                        Project
-                                    </option>
-                                    <option value="Collaboration">
-                                        Collaboration
-                                    </option>
-                                    <option value="Internship">
-                                        Internship
-                                    </option>
-                                    <option value="Just Connect">
-                                        Just Connect
-                                    </option>
-                                </select>
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
                             </div>
-
-
-                            <div class="preset-messages">
-                                <button
-                                    type="button"
-                                    class="preset-btn"
-                                    data-message="I have a project idea and would like to discuss it with you."
-                                >
-                                    Project Idea
-                                </button>
-
-                                <button
-                                    type="button"
-                                    class="preset-btn"
-                                    data-message="I would like to collaborate with you on a project."
-                                >
-                                    Collaboration
-                                </button>
-
-                                <button
-                                    type="button"
-                                    class="preset-btn"
-                                    data-message="I would like to discuss an internship opportunity."
-                                >
-                                    Internship
-                                </button>
-
-                                <button
-                                    type="button"
-                                    class="preset-btn"
-                                    data-message="I would like to connect and have a conversation about technology."
-                                >
-                                    Just Connect
-                                </button>
-                            </div>
-
-
                             <div class="form-group">
-                                <label for="message">
-                                    Message <span>*</span>
-                                </label>
-
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="6"
-                                    placeholder="Tell me about your idea..."
-                                    required
-                                ></textarea>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control" required placeholder="john@example.com">
                             </div>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="subject">Reason for Contact</label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="" disabled selected>Select an option...</option>
+                                <option value="Project Collaboration">Project Collaboration</option>
+                                <option value="Internship Opportunity">Internship Opportunity</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
 
-                            <label class="consent-label">
-                                <input
-                                    type="checkbox"
-                                    id="consent"
-                                    name="consent"
-                                    value="I agree to be contacted regarding this message."
-                                    required
-                                >
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" required placeholder="Tell me about your idea..."></textarea>
+                        </div>
 
-                                <span class="custom-check"></span>
+                        <label class="custom-checkbox-wrapper">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <span class="checkmark"></span>
+                            I agree to be contacted regarding this message.
+                        </label>
 
-                                <span>
-                                    I agree to be contacted regarding this message.
-                                </span>
-                            </label>
-
-
-                        <button
-    type="submit"
-    class="btn btn-submit"
-    id="submitButton"
-    disabled
->
-    <span class="submit-text">SEND MESSAGE</span>
-    <span class="submit-loading" aria-hidden="true"></span>
-    <span class="submit-arrow">↗</span>
-                        </button>
-
-
-                            <div
-                                class="form-status"
-                                id="formStatus"
-                                role="status"
-                                aria-live="polite"
-                            ></div>
-
-                        </form>
-
-                    </div>
-
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="width: 100%; margin-top: 10px;">Send Message ↗</button>
+                        
+                        <div id="formStatus"></div>
+                    </form>
                 </div>
+            </div>
+        </section>
 
+        <!-- ================= 404 PAGE ================= -->
+        <section id="404" class="page">
+            <div class="container hero" style="flex-direction: column; justify-content: center;">
+                <h1 style="font-size: 8rem; color: var(--cyan); text-shadow: var(--shadow-out);">404</h1>
+                <h2>Lost in the Matrix?</h2>
+                <p>The page you are looking for does not exist or has been moved.</p>
+                <a href="#home" class="btn btn-primary" style="margin-top: 20px;">Return Home 🏠</a>
             </div>
         </section>
 
     </main>
 
-
-    <footer class="site-footer">
-        <div class="container footer-inner">
-
-            <div class="footer-brand">
-                <a href="#home" class="logo">
-                    <span class="logo-mark">AK</span>
-                    <span class="logo-text">Aman<span>.</span></span>
-                </a>
-
-                <p>
-                    Electronics Engineering Student<br>
-                    Building for the future.
-                </p>
-            </div>
-
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-
-            <div class="footer-bottom">
-                <span>© 2026 Aman Kumar. All rights reserved.</span>
-
-                <a href="#home" class="back-to-top" aria-label="Back to top">
-                    ↑
-                </a>
-            </div>
-
+    <!-- SHARED FOOTER -->
+    <footer>
+        <div class="container" style="padding: 0;">
+            <a href="#home" class="logo" style="display: block; margin-bottom: 10px;">Aman<span>.</span></a>
+            <p>© 2026 Aman Kumar. Building for the future.</p>
         </div>
     </footer>
 
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            /* --- 1. SPA ROUTER (Hash Based Navigation) --- */
+            const pages = document.querySelectorAll('.page');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            function handleRoute() {
+                let hash = window.location.hash || '#home';
+                
+                // Check if page exists, else show 404
+                const targetPage = document.querySelector(hash);
+                if (!targetPage && hash !== '#404') {
+                    window.location.hash = '#404';
+                    return;
+                }
 
-    <script src="js/navigation.js" defer></script>
-    <script src="js/animations.js" defer></script>
-    <script src="js/main.js" defer></script>
+                // Hide all, show target
+                pages.forEach(p => p.classList.remove('active'));
+                if(targetPage) targetPage.classList.add('active');
 
+                // Update Navbar Active State
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Close mobile menu on navigate
+                document.getElementById("navLinks").classList.remove("show");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            window.addEventListener('hashchange', handleRoute);
+            handleRoute(); // Call on initial load
+
+            /* --- 2. THEME TOGGLE --- */
+            const themeToggle = document.getElementById("themeToggle");
+            const body = document.body;
+            
+            // Check saved theme
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            body.setAttribute("data-theme", savedTheme);
+            themeToggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+
+            themeToggle.addEventListener("click", () => {
+                const currentTheme = body.getAttribute("data-theme");
+                const newTheme = currentTheme === "light" ? "dark" : "light";
+                body.setAttribute("data-theme", newTheme);
+                localStorage.setItem("theme", newTheme);
+                themeToggle.textContent = newTheme === "dark" ? "☀️" : "🌙";
+            });
+
+            /* --- 3. MOBILE MENU --- */
+            const mobileBtn = document.getElementById("mobileMenuBtn");
+            const navLinks = document.getElementById("navLinks");
+            
+            mobileBtn.addEventListener("click", () => {
+                navLinks.classList.toggle("show");
+            });
+
+            /* --- 4. TYPEWRITER EFFECT --- */
+            const words = ["Electronics Engineer.", "Python Developer.", "Hardware Enthusiast.", "AI Learner."];
+            let wordIdx = 0, charIdx = 0, isDeleting = false;
+            const typeTarget = document.getElementById("typewriterText");
+
+            function typeEffect() {
+                if(!typeTarget) return;
+                const currentWord = words[wordIdx];
+                
+                if (isDeleting) {
+                    typeTarget.textContent = currentWord.substring(0, charIdx - 1);
+                    charIdx--;
+                } else {
+                    typeTarget.textContent = currentWord.substring(0, charIdx + 1);
+                    charIdx++;
+                }
+
+                let speed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIdx === currentWord.length) {
+                    speed = 2000; // Pause at end of word
+                    isDeleting = true;
+                } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    wordIdx = (wordIdx + 1) % words.length;
+                    speed = 500; // Pause before new word
+                }
+                setTimeout(typeEffect, speed);
+            }
+            typeEffect();
+
+            /* --- 5. WEB3FORMS CONTACT SUBMISSION --- */
+            const contactForm = document.getElementById("contactForm");
+            const submitBtn = document.getElementById("submitBtn");
+            const formStatus = document.getElementById("formStatus");
+
+            if (contactForm) {
+                contactForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    
+                    submitBtn.textContent = "Sending...";
+                    submitBtn.disabled = true;
+                    formStatus.className = "";
+                    formStatus.style.display = "none";
+
+                    const formData = new FormData(contactForm);
+                    
+                    try {
+                        const response = await fetch(contactForm.action, {
+                            method: "POST",
+                            body: formData,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        
+                        const result = await response.json();
+                        if (response.ok && result.success) {
+                            formStatus.textContent = "Message sent successfully! I'll reply soon.";
+                            formStatus.className = "success";
+                            contactForm.reset();
+                        } else {
+                            throw new Error("Failed to send message.");
+                        }
+                    } catch (error) {
+                        formStatus.textContent = "Error sending message. Please try again later.";
+                        formStatus.className = "error";
+                    } finally {
+                        formStatus.style.display = "block";
+                        submitBtn.textContent = "Send Message ↗";
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        });
+
+        /* --- 6. MOCK DOWNLOAD CV --- */
+        function downloadCV(e) {
+            e.preventDefault();
+            // Show a nice custom modal/message instead of ugly alert
+            const btn = e.target;
+            const originalText = btn.textContent;
+            btn.textContent = "CV Downloaded! ✓";
+            btn.style.color = "var(--cyan)";
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.color = "";
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
