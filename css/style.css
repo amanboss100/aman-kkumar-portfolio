@@ -84,3 +84,45 @@ body {
 /* Scroll Reveal Animation */
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   3D TILT & GLARE EFFECT
+========================================= */
+.card {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.card-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(
+        circle at 50% 50%, 
+        rgba(255, 255, 255, 0.15), 
+        transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+[data-theme="light"] .card-glare {
+    background: radial-gradient(
+        circle at 50% 50%, 
+        rgba(255, 255, 255, 0.6), 
+        transparent 65%
+    );
+}
+
+/* Card ke andar ka content upar utha hua dikhe */
+.card > *:not(.card-glare) {
+    position: relative;
+    z-index: 2;
+    transform: translateZ(20px);
+}
