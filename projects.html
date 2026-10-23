@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Aman Kumar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .status-badge { font-size: 0.75rem; color: var(--cyan); font-weight: bold; background: rgba(0, 229, 255, 0.1); padding: 5px 12px; border-radius: 20px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0 25px 0; }
+        .project-tags span { font-size: 0.75rem; padding: 6px 14px; border-radius: 15px; box-shadow: var(--shadow-out); color: var(--text-soft); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" style="text-decoration: none; color: var(--text); font-weight: bold; font-size: 1.2rem;">AK.</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="themeToggle">☀️</button>
+    </nav>
+
+    <!-- Projects Section -->
+    <div class="container">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 10px;">Things I've <span style="color: var(--cyan);">Built</span></h2>
+        <p style="text-align: center; color: var(--text-soft);">A collection of my recent AI, Python, and Web Development projects.</p>
+
+        <div class="projects-grid">
+            
+            <!-- DriveGuard -->
+            <div class="card">
+                <div class="project-header">
+                    <h3>DriveGuard</h3>
+                    <span class="status-badge">AI / Python</span>
+                </div>
+                <p>A Python-based AI system that improves driver safety by monitoring eyes and detecting yawns to trigger instant alarms.</p>
+                <div class="project-tags">
+                    <span>Python</span><span>Computer Vision</span><span>AI</span>
+                </div>
+                <a href="https://github.com/amanboss100/DriveGuard" target="_blank" class="btn">View GitHub ↗</a>
+            </div>
+
+            <!-- Rubik's Cube -->
+            <div class="card">
+                <div class="project-header">
+                    <h3>Rubik's Cube 3D</h3>
+                    <span class="status-badge">Web / 3D</span>
+                </div>
+                <p>A fully interactive 3D Rubik’s Cube simulator with real slice rotations, mobile touch controls, and a smooth neon UI.</p>
+                <div class="project-tags">
+                    <span>HTML/CSS</span><span>Three.js</span><span>JavaScript</span>
+                </div>
+                <a href="https://github.com/amanboss100/rubiks-cube-3d-simulator" target="_blank" class="btn">View GitHub ↗</a>
+            </div>
+
+            <!-- Mind Matrix Quiz -->
+            <div class="card">
+                <div class="project-header">
+                    <h3>Mind Matrix Quiz</h3>
+                    <span class="status-badge">Interactive</span>
+                </div>
+                <p>A hyper-interactive terminal quiz system powered by raw canvas animation layers, live TTS engine, and custom audio filters.</p>
+                <div class="project-tags">
+                    <span>HTML</span><span>Canvas API</span><span>Web Audio</span>
+                </div>
+                <a href="https://github.com/amanboss100/mind-matrix-quiz" target="_blank" class="btn">View GitHub ↗</a>
+            </div>
+
+            <!-- Telegram Bot -->
+            <div class="card">
+                <div class="project-header">
+                    <h3>AI Telegram Bot</h3>
+                    <span class="status-badge">Private</span>
+                </div>
+                <p>A professional AI-powered Telegram bot featuring custom commands, conversational AI chat, Mini App integration, and admin controls.</p>
+                <div class="project-tags">
+                    <span>Python</span><span>Telegram API</span><span>AI</span>
+                </div>
+                <a href="https://github.com/amanboss100" target="_blank" class="btn">View Profile ↗</a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
