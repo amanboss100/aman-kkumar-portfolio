@@ -25,3 +25,48 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+// ---------------- TYPEWRITER EFFECT ----------------
+    const typewriterElement = document.getElementById("typewriter");
+    if (typewriterElement) {
+        const words = ["Python Developer", "Electronics Engineer", "Web Developer", "AI Enthusiast"];
+        let wordIndex = 0; let charIndex = 0; let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 1500; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 500; // Pause before new word
+            }
+            setTimeout(type, typeSpeed);
+        }
+        type();
+    }
+
+    // ---------------- SCROLL REVEAL ----------------
+    const reveals = document.querySelectorAll(".reveal, .card");
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(reveal => {
+            const revealTop = reveal.getBoundingClientRect().top;
+            if (revealTop < windowHeight - 50) {
+                reveal.classList.add("active");
+            }
+        });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // Trigger on load
