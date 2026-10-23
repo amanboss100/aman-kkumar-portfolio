@@ -77,3 +77,10 @@ body {
 @media (max-width: 768px) {
   .nav-links { display: none; }
 }
+/* Typewriter Cursor */
+.cursor { display: inline-block; width: 3px; background-color: var(--cyan); animation: blink 0.8s infinite; margin-left: 5px; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Scroll Reveal Animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
