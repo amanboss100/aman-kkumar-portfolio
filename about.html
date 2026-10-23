@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Aman Kumar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+        .skill-tag { padding: 10px 18px; border-radius: 20px; background: var(--surface); color: var(--cyan); box-shadow: var(--shadow-out); font-weight: 600; transition: var(--transition); }
+        .skill-tag:hover { transform: translateY(-3px); box-shadow: var(--shadow-in); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" style="text-decoration: none; color: var(--text); font-weight: bold; font-size: 1.2rem;">AK.</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <button id="themeToggle">☀️</button>
+    </nav>
+
+    <div class="container reveal">
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 10px;">About <span style="color: var(--cyan);">Me</span></h2>
+        
+        <div class="about-grid">
+            <div class="card">
+                <h3>My Journey</h3>
+                <p style="margin-top: 15px; color: var(--text-soft);">I am an Electronics Engineering student with a deep passion for Software Development, AI, and Hardware integration. I love building intelligent systems that solve real-world problems.</p>
+                <a href="assets/Aman_Kumar_Resume.pdf" download class="btn" style="margin-top: 25px;">Download Resume ↓</a>
+            </div>
+            
+            <div class="card">
+                <h3>Tech Stack</h3>
+                <div class="skills-container">
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">JavaScript</div>
+                    <div class="skill-tag">HTML & CSS</div>
+                    <div class="skill-tag">Three.js</div>
+                    <div class="skill-tag">TensorFlow</div>
+                    <div class="skill-tag">FastAPI</div>
+                    <div class="skill-tag">C/C++</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
