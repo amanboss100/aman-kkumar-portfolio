@@ -1,33 +1,22 @@
-/* =========================================
-   AMAN KUMAR PORTFOLIO - 3D & THEMES
-========================================= */
-
 :root {
-  /* LIGHT MODE (Default) */
   --bg: #e0e5ec;
   --surface: #e0e5ec;
   --text: #2d3436;
   --text-soft: #636e72;
-  --cyan: #00b894; /* Elegant green/cyan for light mode */
-  
-  /* 3D Shadows (Neumorphism) */
+  --cyan: #00b894; 
   --shadow-out: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
   --shadow-in: inset 6px 6px 10px 0 rgba(163,177,198, 0.7), inset -6px -6px 10px 0 rgba(255,255,255, 0.8);
-  
   --radius: 20px;
   --font-main: 'Inter', sans-serif;
-  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition: all 0.3s ease;
 }
 
 [data-theme="dark"] {
-  /* DARK MODE */
   --bg: #0f111a;
   --surface: #151823;
   --text: #ecfaff;
   --text-soft: #a0aec0;
   --cyan: #00e5ff;
-
-  /* 3D Shadows (Dark) */
   --shadow-out: 8px 8px 16px rgba(0,0,0,0.4), -8px -8px 16px rgba(35,40,55,0.3);
   --shadow-in: inset 6px 6px 10px rgba(0,0,0,0.5), inset -6px -6px 10px rgba(35,40,55,0.4);
 }
@@ -35,119 +24,56 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-main);
-  line-height: 1.6;
+  background: var(--bg); color: var(--text); font-family: var(--font-main);
   transition: background 0.4s ease, color 0.4s ease;
-  
-  /* Page Transition Animation */
-  opacity: 0;
-  animation: pageFadeIn 0.6s forwards;
 }
 
-@keyframes pageFadeIn {
-  to { opacity: 1; }
-}
-body.page-transitioning {
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
+.container { width: min(1100px, 90%); margin: auto; padding: 120px 0 80px 0; }
 
-.container { width: min(1100px, 90%); margin: auto; padding: 80px 0; }
-
-/* ---------------- Navbar (Floating 3D Pill) ---------------- */
+/* Navbar */
 .navbar {
   position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-  width: min(900px, 90%);
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 12px 24px;
-  border-radius: 50px;
-  background: var(--surface);
-  box-shadow: var(--shadow-out);
-  z-index: 1000;
+  width: min(900px, 90%); display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 24px; border-radius: 50px; background: var(--surface);
+  box-shadow: var(--shadow-out); z-index: 1000;
 }
 .nav-links { display: flex; gap: 20px; }
 .nav-links a {
   text-decoration: none; color: var(--text-soft); font-weight: 600;
   padding: 8px 16px; border-radius: 30px; transition: var(--transition);
 }
-.nav-links a:hover, .nav-links a.active {
-  color: var(--cyan); box-shadow: var(--shadow-in);
-}
+.nav-links a:hover, .nav-links a.active { color: var(--cyan); box-shadow: var(--shadow-in); }
 
-/* Theme Toggle Button */
+/* Theme Toggle */
 #themeToggle {
-  background: var(--surface); border: none; outline: none; cursor: pointer;
-  width: 45px; height: 45px; border-radius: 50%;
-  box-shadow: var(--shadow-out);
-  color: var(--text); font-size: 1.2rem;
-  transition: var(--transition);
+  background: var(--surface); border: none; cursor: pointer;
+  width: 45px; height: 45px; border-radius: 50%; box-shadow: var(--shadow-out);
+  color: var(--text); font-size: 1.2rem; transition: var(--transition);
 }
 #themeToggle:active { box-shadow: var(--shadow-in); }
 
-/* ---------------- 3D Buttons ---------------- */
+/* Buttons & Cards */
 .btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 12px;
-  background: var(--surface);
-  color: var(--cyan);
-  text-decoration: none;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-out);
+  display: inline-block; padding: 14px 28px; border-radius: 12px;
+  background: var(--surface); color: var(--cyan); text-decoration: none;
+  font-weight: 700; border: none; cursor: pointer; box-shadow: var(--shadow-out);
   transition: var(--transition);
 }
 .btn:hover { color: var(--text); transform: translateY(-2px); }
 .btn:active { box-shadow: var(--shadow-in); transform: translateY(0); }
 
-/* ---------------- 3D Cards ---------------- */
 .card {
-  background: var(--surface);
-  padding: 30px;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-out);
-  transition: var(--transition);
+  background: var(--surface); padding: 30px; border-radius: var(--radius);
+  box-shadow: var(--shadow-out); transition: var(--transition);
 }
 .card:hover { transform: translateY(-5px); }
 
-/* ---------------- Big Custom Checkbox ---------------- */
-.custom-checkbox-wrapper {
-  display: flex; align-items: center; gap: 15px; cursor: pointer;
-  margin-top: 15px; font-weight: 600; color: var(--text-soft);
-}
-.custom-checkbox-wrapper input { display: none; }
-.checkmark {
-  width: 30px; height: 30px;
-  background: var(--surface);
-  border-radius: 8px;
-  box-shadow: var(--shadow-out);
-  display: flex; align-items: center; justify-content: center;
-  transition: var(--transition);
-}
-.custom-checkbox-wrapper input:checked + .checkmark {
-  box-shadow: var(--shadow-in);
-  color: var(--cyan);
-}
-.custom-checkbox-wrapper input:checked + .checkmark::after {
-  content: "✔"; font-size: 1.2rem; font-weight: bold;
-}
+/* Layout Helpers */
+.hero-content { text-align: center; max-width: 700px; margin: auto; }
+.hero-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; }
+.hero-content p { color: var(--text-soft); font-size: 1.1rem; margin-bottom: 30px; }
+.actions { display: flex; gap: 15px; justify-content: center; }
 
-/* ---------------- Mobile Responsiveness ---------------- */
 @media (max-width: 768px) {
-  .nav-links {
-    display: none; /* Hide default nav on mobile */
-    position: absolute; top: 70px; left: 0; width: 100%;
-    background: var(--surface);
-    flex-direction: column; padding: 20px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-out);
-  }
-  .nav-links.show { display: flex; }
-  .mobile-menu-btn { display: block; background: none; border:none; font-size: 1.5rem; color: var(--text); }
-}
-@media (min-width: 769px) {
-  .mobile-menu-btn { display: none; }
+  .nav-links { display: none; }
 }
